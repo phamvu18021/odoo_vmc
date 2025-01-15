@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="th_data_report_xlsx" model="ir.actions.report">
+        <field name="name">Mẫu import</field>
+        <field name="model">report.export_xlsx</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">export_xlsx</field>
+        <field name="report_file">export_xlsx</field>
+        <field name="print_report_name">"Export data"</field>
+        <field name="binding_type">report</field>
+    </record>
+    </data>
+</odoo>

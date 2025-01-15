@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_category_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.category.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <!-- Thêm trường slug vào nhóm Logistics -->
+                <xpath expr="//group[@name='logistics']" position="inside">
+                    <field name="slug" string="Slug" placeholder="Enter a unique slug" required="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

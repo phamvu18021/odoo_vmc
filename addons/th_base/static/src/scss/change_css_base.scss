@@ -1,0 +1,39 @@
+@media screen and (min-width: 900px) {
+    .tab-content .o_list_view .table-responsive table {
+
+    }
+    .tab-content .o_list_view .table-responsive {
+        overflow-x: unset !important;
+    }
+    .o_form_view .o_form_sheet_bg > .o_form_sheet {
+        overflow: unset;
+    }
+    .tab-content .o_list_view .o_list_table th {
+        position: sticky !important;
+        top: 0px !important;
+        background-color: #eee;
+    }
+
+    .o_list_view .o_list_table thead > tr > th {
+        position: sticky !important;
+        top: 0px !important;
+        background-color: #eee;
+    }
+    .o_content > .o_list_view > .table-responsive > .table:not(.o_list_table_grouped) > thead > tr > *.o_list_record_selector {
+        z-index: 5;
+    }
+    .o_content > .o_list_view > .table-responsive > .table > thead > tr > th.o_column_sortable:not(:empty){
+        z-index: 5;
+    }
+    .o_content > .o_list_view > .table-responsive > .table > thead > tr > *.o_list_record_selector{
+        z-index: 5;
+    }
+    .o_content > .o_list_view > .table-responsive > .table .o_optional_columns_dropdown_toggle {
+        z-index: 5;
+    }
+}
+
+.o_btn_none_display{
+  display: none;
+}
+

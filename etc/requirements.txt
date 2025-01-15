@@ -1,0 +1,16 @@
+# -----------------------
+# | Add Python packages |
+# -----------------------
+# To install below packages at startup, uncomment this line in "docker-compose.yml" file!
+# - ./entrypoint.sh:/entrypoint.sh
+# then down the docker container ($ docker-compose down) and up it again ($ docker-compose up -d).
+# -----------------------
+paramiko==2.7.2 # for auto_backup module
+python-dotenv==1.0.0
+fastapi>=0.110.0
+python-multipart
+ujson
+a2wsgi>=1.10.6
+parse-accept-language
+jose>=1.0.0
+python-jose==3.3.0

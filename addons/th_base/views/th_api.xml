@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="th_api_view_tree" model="ir.ui.view">
+        <field name="name">th.api.view.tree</field>
+        <field name="model">th.api.server</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="th_url_api"/>
+                <field name="th_user_api"/>
+<!--                <field name="th_password"/>-->
+                <field name="th_db_api"/>
+                <field name="th_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="th_api_view_form" model="ir.ui.view">
+        <field name="name">th.api.view.tree</field>
+        <field name="model">th.api.server</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button string="Test kết nối" type="object" class="btn btn-primary" name="action_test_server"/>
+                    <button string="Nháp" type="object" class="btn" name="action_draft" states="close"/>
+                    <button string="Triển khai" type="object" class="btn btn-primary" name="action_deploy"
+                            states="draft"/>
+                    <button string="Đóng" type="object" class="btn" name="action_close" states="deploy"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,deploy,close"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="th_url_api"/>
+                            <field name="th_db_api"/>
+                            <field name="th_type"/>
+                            <field name="th_uid_api" readonly="1" invisible="1"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="th_partner_api_id" readonly="1"/>
+                            <field name="th_user_api"/>
+                            <field name="th_password" password="True" placeholder="************"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Mô tả">
+                            <field name="th_description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="th_api_view_action" model="ir.actions.act_window">
+        <field name="name">API</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">th.api.server</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+</odoo>

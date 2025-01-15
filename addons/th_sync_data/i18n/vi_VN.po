@@ -1,0 +1,2208 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* th_sync_data
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20230313\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-17 03:45+0000\n"
+"PO-Revision-Date: 2024-05-17 03:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__active_voucher
+msgid "Active"
+msgstr "Hoạt động"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_reward__reward_product_category
+#: model_terms:ir.ui.view,arch_db:th_sync_data.loyalty_reward_view_form_inherit
+msgid "Categories"
+msgstr "Nhóm sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_reward__condition_des
+#: model_terms:ir.ui.view,arch_db:th_sync_data.loyalty_reward_view_form_inherit
+msgid "Condition Description"
+msgstr "Mô tả điều kiện"
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:th_sync_data.loyalty_program_discount_loyalty_action_inherit
+msgid "Create a new one from scratch, or use one of the templates below."
+msgstr "Tạo mới hoàn toàn, hoặc sử dụng một trong những mẫu bên dưới"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: th_sync_data
+#: model:ir.actions.act_window,name:th_sync_data.loyalty_program_discount_loyalty_action_inherit
+msgid "Discount & Loyalty"
+msgstr "Chiết khấu & Khách hàng thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_sale_order_line__discount
+msgid "Discount (%)"
+msgstr "Chiết khấu (%)"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_product_category__display_name
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_sale_order_line__free_product
+msgid "Free Product"
+msgstr "Sản phẩm tặng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__id
+msgid "ID"
+msgstr ""
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/th_sync_data/models/product_template.py:0
+#, python-format
+msgid "Import Template for Products"
+msgstr "Mẫu import sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event____last_update
+msgid "Last Modified on"
+msgstr "Sửa đổi lần cuối vào"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__write_uid
+msgid "Last Updated by"
+msgstr "Sửa đổi lần cuối bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_product_product__video
+#: model:ir.model.fields,field_description:th_sync_data.field_product_template__video
+msgid "Link youtube"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_loyalty_program
+msgid "Loyalty Program"
+msgstr "Chương trình khách hàng thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_loyalty_reward
+msgid "Loyalty Reward"
+msgstr "Phần thưởng CT KH thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:th_sync_data.loyalty_program_discount_loyalty_action_inherit
+msgid "No program found."
+msgstr "Không tìm thấy chương trình nào."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_program__is_preorder
+#: model:ir.model.fields,field_description:th_sync_data.field_product_product__preorder
+#: model:ir.model.fields,field_description:th_sync_data.field_product_template__preorder
+#: model_terms:ir.ui.view,arch_db:th_sync_data.loyalty_program_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:th_sync_data.product_template_form_main_view_inherit_vmc
+msgid "Preorder"
+msgstr "Đặt hàng trước"
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_product_template
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_product_category
+msgid "Product Category"
+msgstr "Danh mục sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_program__program_type
+msgid "Program Type"
+msgstr "Loại chương trình"
+
+#. module: th_sync_data
+#: model:ir.actions.act_window,name:th_sync_data.action_th_sync_data_promotional_event
+#: model:ir.ui.menu,name:th_sync_data.th_menu_promotional_event
+#: model_terms:ir.ui.view,arch_db:th_sync_data.th_view_form_promotional_event
+#: model_terms:ir.ui.view,arch_db:th_sync_data.th_view_tree_promotional_event
+msgid "Promotional Event"
+msgstr "Sự kiện khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Mục đơn bán hàng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_program__start_date
+#: model_terms:ir.ui.view,arch_db:th_sync_data.loyalty_program_view_form_inherit
+msgid "Start Date"
+msgstr "Ngày bắt đầu"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_program__date_to
+#: model:ir.model.fields,field_description:th_sync_data.field_loyalty_program__thc_date_to
+#: model_terms:ir.ui.view,arch_db:th_sync_data.loyalty_program_view_form_inherit
+msgid "Validity"
+msgstr "Ngày xác nhận"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_th_promotional_event__voucher
+msgid "Voucher"
+msgstr "Voucher"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:th_sync_data.field_product_product__combo_list
+#: model:ir.model.fields,field_description:th_sync_data.field_product_template__combo_list
+msgid "combo List"
+msgstr "Danh sách combo"
+
+#. module: th_sync_data
+#: model:ir.model,name:th_sync_data.model_th_promotional_event
+msgid "th.promotional.event"
+msgstr ""
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promos"
+msgstr "Khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__available_on
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Available On"
+msgstr "Có sẵn trên"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Credit(s)"
+msgstr "Tín dụng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__currency_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__currency_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__currency_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__currency_id
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_program__currency_symbol
+msgid "Currency sign, to be used when printing amounts."
+msgstr "Biểu tượng tiền tệ, được sử dụng khi in tổng tiền."
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__applies_on__both
+msgid "Current & Future orders"
+msgstr "Đơn đặt hàng hiện tại và tương lai"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__applies_on__current
+msgid "Current order"
+msgstr "Thứ tự hiện tại"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__customer_tag_ids
+msgid "Customer Tags"
+msgstr "Thẻ khách hàng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__customer_ids
+msgid "Customers"
+msgstr "Khách hàng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Define Discount codes on conditional rules then share it with your customers"
+" for rewards."
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Description on order"
+msgstr "Mô tả theo đơn đặt hàng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__reward_type__discount
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Discount"
+msgstr "Chiết khấu"
+
+#. module: th_sync_data
+#: model:ir.actions.act_window,name:loyalty.loyalty_program_discount_loyalty_action
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Discount & Loyalty"
+msgstr "Chiết khấu & Khách hàng thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_applicability
+msgid "Discount Applicability"
+msgstr "Khả năng áp dụng giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__promo_code
+msgid "Discount Code"
+msgstr "Mã giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_line_product_id
+msgid "Discount Line Product"
+msgstr "Dòng sản phẩm giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_mode
+msgid "Discount Mode"
+msgstr "Chế độ giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_product_domain
+msgid "Discount Product Domain"
+msgstr "Tên miền sản phẩm giảm giá"
+
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__code
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
+#, python-format
+msgid "Discount code"
+msgstr "Mã giảm giá"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Discount point(s)"
+msgstr "Điểm giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_product_category_id
+msgid "Discounted Prod. Categories"
+msgstr "Sản phẩm giảm giá Thể loại"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_product_tag_id
+msgid "Discounted Prod. Tag"
+msgstr "Sản phẩm giảm giá Nhãn"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_product_ids
+msgid "Discounted Products"
+msgstr "Sản phẩm giảm giá"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Discounts"
+msgstr "Chiết khấu"
+
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__display_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__display_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__display_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__display_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__display_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Displayed as"
+msgstr "Hiển thị"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Drive repeat purchases by sending a unique, single-use coupon code for the "
+"next purchase when a customer buys something in your store."
+msgstr ""
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Each rule can grant points to the customer he will be able to exchange "
+"against rewards"
+msgstr "Mỗi quy tắc có thể cấp điểm cho khách hàng mà anh ta sẽ có thể trao đổi "
+"chống lại phần thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__mail_template_id
+msgid "Email Template"
+msgstr "Mẫu email"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__mail_template_id
+msgid "Email template"
+msgstr "Mẫu email"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_rule__minimum_amount_tax_mode__excl
+msgid "Excluded"
+msgstr "Không bao gồm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__expiration_date
+msgid "Expiration Date"
+msgstr "Ngày hết hạn"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Fidelity Cards"
+msgstr "Thẻ trung thực"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Fill in your eWallet, and use it to pay future orders"
+msgstr "Điền vào ví điện tử của bạn và sử dụng nó để thanh toán các đơn hàng trong tương lai"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_follower_ids
+msgid "Followers"
+msgstr "Người theo dõi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Người theo dõi (Đối tác)"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__mode
+msgid "For"
+msgstr "cho"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__reward_type__product
+#, python-format
+msgid "Free Product"
+msgstr "Sản phẩm miễn phí"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "Free Product - %s"
+msgstr "Sản phẩm miễn phí - %s"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "Free Product - [%s]"
+msgstr "Sản phẩm miễn phí - [%s]"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid "Free product"
+msgstr "Sản phẩm miễn phí"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "A coupon with the same code was found."
+msgstr "Một phiếu giảm giá có cùng mã đã được tìm thấy."
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_card_card_code_unique
+msgid "A coupon/loyalty card must have a unique code."
+msgstr "Phiếu giảm giá/thẻ khách hàng thân thiết phải có mã duy nhất."
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "A program must have at least one reward."
+msgstr "Một chương trình phải có ít nhất một phần thưởng."
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_card.py:0
+#: code:addons/loyalty/models/loyalty_card.py:0
+#, python-format
+msgid "A trigger with the same code as one of your coupon already exists."
+msgstr "Trình kích hoạt có cùng mã với một trong các phiếu giảm giá của bạn đã tồn tại."
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_form
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_tree
+msgid "Balance"
+msgstr "Số dư"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.gift_card_report
+msgid "Barcode"
+msgstr "Mã vạch"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Buy 10 products, and get 10$ discount on the 11th one"
+msgstr "Mua 10 sản phẩm được giảm 10$ cho sản phẩm thứ 11"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Buy 2 products and get a third one for free"
+msgstr "Mua 2 sản phẩm được tặng 1 sản phẩm thứ 3"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__buy_x_get_y
+msgid "Buy X Get Y"
+msgstr "Mua X tặng Y"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#, python-format
+msgid "Can not generate coupon, no program is set."
+msgstr "Không thể tạo phiếu giảm giá, không có chương trình nào được đặt."
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.gift_card_report
+msgid "Card expires"
+msgstr "Thẻ hết hạn"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_category_id
+msgid "Categories"
+msgstr "Phân loại"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__discount_applicability__cheapest
+msgid "Cheapest Product"
+msgstr "Sản phẩm rẻ nhất"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__clear_wallet
+msgid "Clear Wallet"
+msgstr "Xóa ví"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"<span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', 'not in', ('coupons', 'next_order_coupons'))]}\">Coupons</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'loyalty')]}\">Loyalty Cards</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', 'not in', ('promotion', 'buy_x_get_y'))]}\">Promos</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'promo_code')]}\">Discount</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'gift_card')]}\">Gift Cards</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'ewallet')]}\">eWallets</span>"
+msgstr ""
+"<span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', 'not in', ('coupons', 'next_order_coupons'))]}\">Coupons</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'loyalty')]}\">Thẻ khách hàng thân thiết</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', 'not in', ('promotion', 'buy_x_get_y'))]}\">Khuyến mãi</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'promo_code')]}\">Giảm giá</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'gift_card')]}\">Thẻ quà tặng</span>\n"
+"                                <span class=\"o_stat_text\" attrs=\"{'invisible': [('program_type', '!=', 'ewallet')]}\">Ví điện tử</span>"
+
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__limit_usage
+msgid "Limit Usage"
+msgstr "Giới hạn sử dụng"
+
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promos"
+msgstr "Khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__trigger_product_ids
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_ids
+msgid "Products"
+msgstr "Sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__program_id
+msgid "Program"
+msgstr "Chương trình"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__name
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Program Name"
+msgstr "Tên chương trình"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__program_type
+msgid "Program Type"
+msgstr "Loại chương trình"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Program trigger"
+msgstr "Trình kích hoạt chương trình"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promo Code"
+msgstr "Mã khuyến mại"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promo point(s)"
+msgstr "Điểm khuyến mãi"
+
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promotional Program"
+msgstr "Chương trình khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__promotion
+msgid "Promotions"
+msgstr "Khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__coupon_qty
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Quantity rewarded"
+msgstr "Số lượng thưởng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Quantity to generate"
+msgstr "Số lượng tạo ra"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__reward_point_amount
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Reward"
+msgstr "Thưởng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promotional Program"
+msgstr "Chương trình khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__promotion
+msgid "Promotions"
+msgstr "Khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__coupon_qty
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Quantity rewarded"
+msgstr "Số lượng thưởng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Quantity to generate"
+msgstr "Số lượng tạo ra"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__reward_point_amount
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Reward"
+msgstr "Thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__reward_point_mode
+msgid "Reward Point Mode"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_product_qty
+msgid "Reward Product Qty"
+msgstr "Số lượng sản phẩm thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_product_uom_id
+msgid "Reward Product Uom"
+msgstr "Đơn vị sản phẩm thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_product_ids
+msgid "Reward Products"
+msgstr "Sản phẩm thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_type
+msgid "Reward Type"
+msgstr "Loại phần thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__reward_ids
+msgid "Rewards"
+msgstr "Phần thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_rule_reward_point_amount_positive
+msgid "Rule points reward must be strictly positive."
+msgstr "Phần thưởng điểm quy tắc phải hoàn toàn tích cực."
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Rules & Rewards"
+msgstr "Quy tắc & Phần thưởng"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_generate_wizard__mode__selected
+msgid "Selected Customers"
+msgstr "Khách hàng đã chọn"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Sell Gift Cards, that can be used to purchase products"
+msgstr "Bán Thẻ quà tặng, có thể được sử dụng để mua sản phẩm"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_tree
+msgid "Send"
+msgstr "Gửi"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Send unique coupons that give access to rewards"
+msgstr "Gửi phiếu giảm giá độc đáo cho phép truy cập vào phần thưởng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Send unique, single-use coupon code for the next purchase"
+msgstr "Gửi mã phiếu giảm giá duy nhất, sử dụng một lần cho lần mua hàng tiếp theo"
+
+#. module: th_sync_data
+#: model:mail.template,description:loyalty.mail_template_gift_card
+msgid "Sent to customer who purchased a gift card"
+msgstr "Gửi cho khách hàng đã mua thẻ quà tặng"
+
+#. module: th_sync_data
+#: model:mail.template,description:loyalty.mail_template_loyalty_card
+msgid "Sent to customer with coupon information"
+msgstr "Gửi cho khách hàng với thông tin phiếu giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__sequence
+msgid "Sequence"
+msgstr "Trình tự"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Set up conditional rules on the order that will give access to rewards for "
+"customers"
+msgstr ""
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Show points Unit"
+msgstr "Hiển thị điểm"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__discount_applicability__specific
+msgid "Specific Products"
+msgstr "Sản phẩm cụ thể"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__reward_point_split
+msgid "Split per unit"
+msgstr "Chia theo đơn vị"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "Split per unit is not allowed for Loyalty and eWallet programs."
+msgstr "Không được phép chia theo đơn vị đối với các chương trình Khách hàng thân thiết và Ví điện tử."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__currency_symbol
+msgid "Symbol"
+msgstr "Biểu tượng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "Thank you,"
+msgstr "Cảm ơn,"
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_reward_discount_positive
+msgid "The discount must be strictly positive."
+msgstr "Việc giảm giá phải hoàn toàn tích cực."
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "The promo code must be unique."
+msgstr "Mã khuyến mãi phải là duy nhất."
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_reward_required_points_positive
+msgid "The required points for a reward must be strictly positive."
+msgstr "Điểm yêu cầu để nhận phần thưởng phải hoàn toàn tích cực."
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_reward_product_qty_positive
+msgid "The reward product quantity must be strictly positive."
+msgstr "Số lượng sản phẩm thưởng phải hoàn toàn dương."
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_card_action
+msgid "There haven't been any coupons generated yet."
+msgstr "Chưa có bất kỳ phiếu giảm giá nào được tạo ra."
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_reward__reward_product_ids
+msgid "These are the products that can be claimed with this rule."
+msgstr "Đây là những sản phẩm có thể đổi với quy tắc này."
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_reward__discount_max_amount
+msgid ""
+"This is the max amount this reward may discount, leave to 0 for no limit."
+msgstr ""
+"Đây là số tiền tối đa mà phần thưởng này có thể giảm giá, để về 0 là không giới hạn."
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/product_product.py:0
+#: code:addons/loyalty/models/product_product.py:0
+#, python-format
+msgid ""
+"This product may not be archived. It is being used for an active promotion "
+"program."
+msgstr ""
+
+#. module: th_sync_data
+#: model:product.template,name:loyalty.ewallet_product_50_product_template
+msgid "Top-up eWallet"
+msgstr "Nạp tiền vào ví điện tử"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__total_order_count
+msgid "Total Order Count"
+msgstr "Tổng số đơn hàng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__trigger
+msgid "Trigger"
+msgstr "Bộ khởi động"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__use_count
+msgid "Use Count"
+msgstr "Sử dụng số lượng"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__trigger__with_code
+msgid "Use a code"
+msgstr "Sử dụng mã"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Use points on"
+msgstr "Sử dụng điểm trên"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "Use this promo code before"
+msgstr "Sử dụng mã khuyến mãi này trước"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__user_has_debug
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__user_has_debug
+msgid "User Has Debug"
+msgstr "Người dùng đã gỡ lỗi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__valid_until
+msgid "Valid Until"
+msgstr "Có hiệu lực đến"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__date_to
+msgid "Validity"
+msgstr "Ngày xác nhận"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__trigger
+msgid "When"
+msgstr "Thời gian"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_mail__trigger__points_reach
+msgid "When Reaching"
+msgstr "Khi đạt tới"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"When customers make an order, they accumulate points they can exchange for "
+"rewards on the current order or on a future one."
+msgstr ""
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"When generating coupon, you can define a specific points value that can be "
+"exchanged for rewards."
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_rule__reward_point_split
+msgid ""
+"Whether to separate reward coupons per matched unit, only applies to "
+"'future' programs and trigger mode per money spent or unit paid.."
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__will_send_mail
+msgid "Will Send Mail"
+msgstr "Sẽ gửi thư"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Win points with each purchases, and use points to get gifts"
+msgstr "Giành điểm với mỗi lần mua hàng và sử dụng điểm để nhận quà tặng"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_rule__mode__with_code
+msgid "With a promotion code"
+msgstr "Với mã khuyến mãi"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "You can not delete a program in an active state"
+msgstr "Bạn không thể xóa chương trình ở trạng thái hoạt động"
+
+#. module: th_sync_data
+#: model:mail.template,report_name:loyalty.mail_template_loyalty_card
+msgid "Your Coupon Code"
+msgstr "Mã phiếu giảm giá của bạn"
+
+#. module: th_sync_data
+#: model:mail.template,report_name:loyalty.mail_template_gift_card
+msgid "Your Gift Card"
+msgstr "Thẻ quà tặng của bạn"
+
+#. module: th_sync_data
+#: model:mail.template,subject:loyalty.mail_template_gift_card
+msgid "Your Gift Card at {{ object.company_id.name }}"
+msgstr "Thẻ quà tặng của bạn tại {{ object.company_id.name }}"
+
+#. module: th_sync_data
+#: model:mail.template,subject:loyalty.mail_template_loyalty_card
+msgid "Your reward coupon from {{ object.program_id.company_id.name }} "
+msgstr ""
+"Phiếu giảm giá tặng thưởng của bạn từ {{ object.program_id.company_id.name "
+"}} "
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid "all"
+msgstr "tất cả"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid "discount"
+msgstr "chiết khấu"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "e.g. 10% discount on laptops"
+msgstr "Ví dụ. Giảm giá 10% cho laptop"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__ewallet
+#, python-format
+msgid "eWallet"
+msgstr "Ví điện tử"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "eWallet Products"
+msgstr "Sản phẩm ví điện tử"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "eWallet value"
+msgstr "giá trị ví điện tử"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "eWallets"
+msgstr "Ví điện tử"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"eWallets are created manually or automatically when the customer orders a eWallet product.\n"
+"                                    <br/>\n"
+"                                    Then, eWallets are proposed during the checkout, to pay orders."
+msgstr ""
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
+msgid "item(s) bought"
+msgstr "(các) mặt hàng đã mua"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid ""
+"on the cheapest product\n"
+"                                        <br/>"
+msgstr ""
+"trên sản phẩm rẻ nhất\n"
+"                                        <br/>"
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "on your next order"
+msgstr "trong đơn hàng tiếp theo của bạn"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid ""
+"on your order\n"
+"                                        <br/>"
+msgstr ""
+"trên đơn hàng\n"
+"                                        <br/>"
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "per %s spent"
+msgstr "mỗi %s chi tiêu"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "per order"
+msgstr "mỗi đơn đặt hàng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "per unit paid"
+msgstr "mỗi đơn vị được trả"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "specific products"
+msgstr "sản phẩm cụ thể"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
+msgid "spent"
+msgstr "đã tiêu"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "the cheapest product"
+msgstr "sản phẩm rẻ nhất"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "to"
+msgstr "tới"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "usages"
+msgstr "công dụng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "your order"
+msgstr "đơn đặt hàng của bạn"
+
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_is_follower
+msgid "Is Follower"
+msgstr "Trở thành người theo dõi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__is_global_discount
+msgid "Is Global Discount"
+msgstr "Là chiết khấu toàn cầu"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__is_nominative
+msgid "Is Nominative"
+msgstr "được đề cử"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__is_payment_program
+msgid "Is Payment Program"
+msgstr "Là chương trình thanh toán"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__coupon_count_display
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_tree
+msgid "Items"
+msgstr "Dòng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card____last_update
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard____last_update
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail____last_update
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program____last_update
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward____last_update
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__write_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__write_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__write_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__write_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__write_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__write_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__write_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__write_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__write_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__write_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_mail_view_tree
+msgid "Limit"
+msgstr "Giới hạn"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__limit_usage
+msgid "Limit Usage"
+msgstr "Giới hạn sử dụng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "Logo"
+msgstr "Biểu tượng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__loyalty
+#, python-format
+msgid "Loyalty Cards"
+msgstr "Thẻ khách hàng thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_mail
+msgid "Loyalty Communication"
+msgstr "Truyền thông trung thành"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_card
+msgid "Loyalty Coupon"
+msgstr "Phiếu giảm giá khách hàng thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_reward
+msgid "Loyalty Reward"
+msgstr "Phần thưởng CT KH thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_rule
+msgid "Loyalty Rule"
+msgstr "Quy tắc CT KH thân thiết"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Loyalty point(s)"
+msgstr "Điểm thân thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Tệp đính kèm chính"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__discount_max_amount
+msgid "Max Discount"
+msgstr "Giảm giá tối đa"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__max_usage
+msgid "Max Usage"
+msgstr "Mức sử dụng tối đa"
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_program_check_max_usage
+msgid "Max usage must be strictly positive if a limit is used."
+msgstr "Mức sử dụng tối đa phải hoàn toàn dương nếu sử dụng giới hạn"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_has_error
+msgid "Message Delivery error"
+msgstr "Thông báo gửi đi gặp lỗi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_ids
+msgid "Messages"
+msgstr "Thông báo"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__minimum_amount_tax_mode
+msgid "Minimum Amount Tax Mode"
+msgstr "Chế độ thuế số tiền tối thiểu"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__minimum_amount
+msgid "Minimum Purchase"
+msgstr "Mua tối thiểu"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__minimum_qty
+msgid "Minimum Quantity"
+msgstr "Số lượng tối thiểu"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__multi_product
+msgid "Multi Product"
+msgstr "Đa sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_program
+msgid "Mã giảm giá"
+msgstr "Chương trình khách hàng thân thiết"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__next_order_coupons
+#, python-format
+msgid "Next Order Coupons"
+msgstr "Phiếu giảm giá đặt hàng tiếp theo"
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_card_action
+msgid "No Coupons Found."
+msgstr "Không tìm thấy phiếu giảm giá nào."
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_program_gift_ewallet_action
+msgid "No loyalty program found."
+msgstr "Không tìm thấy chương trình khách hàng thân thiết."
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_program_discount_loyalty_action
+msgid "No program found."
+msgstr "Không tìm thấy chương trình nào."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Số lượng hành động"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_has_error_counter
+msgid "Number of errors"
+msgstr "Số lỗi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_card__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Số thông báo cần xử lý"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_card__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Số lượng tin gửi đi bị lỗi"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__discount_applicability__order
+msgid "Order"
+msgstr "Lệnh"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__partner_id
+msgid "Partner"
+msgstr "Đối tác"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_form
+msgid "Point(s)"
+msgstr "(Các) điểm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__points
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__points
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Points"
+msgstr "Điểm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__points_display
+msgid "Points Display"
+msgstr "Hiển thị điểm"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Points Unit"
+msgstr "Đơn vị tính điểm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__required_points
+msgid "Points needed"
+msgstr "Điểm cần thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__point_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__points_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__portal_point_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__point_name
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__reward_point_name
+msgid "Portal Point Name"
+msgstr "Tên điểm cổng thông tin"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__portal_visible
+msgid "Portal Visible"
+msgstr "Cổng thông tin hiển thị"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_domain
+msgid "Product Domain"
+msgstr "Miền sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__reward_product_tag_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_tag_id
+msgid "Product Tag"
+msgstr "Thẻ sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_product_product
+msgid "Product Variant"
+msgstr "Biến thể sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_reward__discount_line_product_id
+msgid ""
+"Product used in the sales order to apply the discount. Each reward has its "
+"own product for reporting purpose"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__trigger_product_ids
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_ids
+msgid "Products"
+msgstr "Sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__program_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__program_id
+msgid "Program"
+msgstr "Chương trình"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__name
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Program Name"
+msgstr "Tên chương trình"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__program_type
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__program_type
+msgid "Program Type"
+msgstr "Loại chương trình"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Program trigger"
+msgstr "Trình kích hoạt chương trình"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promo Code"
+msgstr "Mã khuyến mại"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Promo point(s)"
+msgstr "Điểm khuyến mãi"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_form
+msgid "Conditions"
+msgstr "Điều kiện"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "Congratulations"
+msgstr "Chúc mừng"
+
+#. module: th_sync_data
+#. odoo-javascript
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#, python-format
+msgid "Control panel buttons"
+msgstr "Thanh công cụ bảng điều khiển"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__coupon_ids
+msgid "Coupon"
+msgstr "Phiếu giảm giá"
+
+#. module: th_sync_data
+#: model:ir.actions.report,name:loyalty.report_loyalty_card
+msgid "Coupon Code"
+msgstr "Mã giảm giá"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__coupon_count
+msgid "Coupon Count"
+msgstr "Số phiếu giảm giá"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Coupon point(s)"
+msgstr "(Các) điểm phiếu giảm giá"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Coupon value"
+msgstr "Giá trị phiếu giảm giá"
+
+#. module: th_sync_data
+#: model:mail.template,name:loyalty.mail_template_loyalty_card
+msgid "Coupon: Coupon Information"
+msgstr "Phiếu giảm giá: Thông tin phiếu giảm giá"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: model:ir.actions.act_window,name:loyalty.loyalty_card_action
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__coupons
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_tree
+#, python-format
+msgid "Coupons"
+msgstr "Phiếu khuyến mãi"
+
+#. module: th_sync_data
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_program_discount_loyalty_action
+#: model_terms:ir.actions.act_window,help:loyalty.loyalty_program_gift_ewallet_action
+msgid "Create a new one from scratch, or use one of the templates below."
+msgstr "Tạo một mẫu mới từ đầu hoặc sử dụng một trong các mẫu bên dưới."
+
+#. module: th_sync_data
+#. odoo-javascript
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#, python-format
+msgid "Create record"
+msgstr "Tạo bản ghi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__create_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__create_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__create_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__create_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__create_uid
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__create_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__create_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__create_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__create_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__create_date
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__create_date
+msgid "Created on"
+msgstr "Được tạo vào"
+
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__applies_on__future
+msgid "Future orders"
+msgstr "Đơn đặt hàng trong tương lai"
+
+#. module: th_sync_data
+#. odoo-javascript
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#: model:ir.actions.act_window,name:loyalty.loyalty_generate_wizard_action
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+#, python-format
+msgid "Generate"
+msgstr "Tạo"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Generate &amp; share coupon codes manually. It can be used in eCommerce, "
+"Point of Sale or regular orders to claim the Reward. You can define "
+"constraints on its usage through conditional rule."
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model,name:loyalty.model_loyalty_generate_wizard
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Generate Coupons"
+msgstr "Tạo phiếu giảm giá"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Generate Gift Cards"
+msgstr "Tạo thẻ quà tặng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Generate eWallet"
+msgstr "Tạo ví điện tử"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Get a code to receive 10% discount on specific products"
+msgstr "Nhận mã để được giảm giá 10% cho các sản phẩm cụ thể"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_gift_ewallet_view_form
+msgid "Gift &amp; Ewallet"
+msgstr "Quà tặng &amp; Ví điện tử"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: model:ir.actions.report,name:loyalty.report_gift_card
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__gift_card
+#: model:product.template,name:loyalty.gift_card_product_50_product_template
+#, python-format
+msgid "Gift Card"
+msgstr "Thẻ quà tặng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Gift Card Products"
+msgstr "Sản phẩm thẻ quà tặng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Gift Card value"
+msgstr "Giá trị thẻ quà tặng"
+
+#. module: th_sync_data
+#: model:mail.template,name:loyalty.mail_template_gift_card
+msgid "Gift Card: Gift Card Information"
+msgstr "Thẻ quà tặng: Thông tin thẻ quà tặng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Gift Cards"
+msgstr "Thẻ quà tặng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Gift Cards are created manually or automatically sent by email when the customer orders a gift card product.\n"
+"                                    <br/>\n"
+"                                    Then, Gift Cards can be used to pay orders."
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.actions.act_window,name:loyalty.loyalty_program_gift_ewallet_action
+msgid "Gift cards & eWallet"
+msgstr "Thẻ quà tặng & ví điện tử"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__points_granted
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_form
+msgid "Grant"
+msgstr "Trao tặng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid ""
+"Grant 1 credit for each item bought then reward the customer with Y items in"
+" exchange of X credits."
+msgstr ""
+"Cấp 1 tín dụng cho mỗi mặt hàng đã mua sau đó thưởng cho khách hàng Y mặt hàng"
+"trao đổi tín dụng X."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__has_message
+msgid "Has Message"
+msgstr "Có tin nhắn"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.gift_card_report
+msgid "Here is your gift card!"
+msgstr "Đây là thẻ quà tặng của bạn!"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_report
+msgid "Here is your reward from"
+msgstr "Đây là phần thưởng của bạn từ"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_generate_wizard__id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_card__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Nếu chọn, các tin nhắn mới yêu cầu sự có mặt của bạn."
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_card__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Nếu đánh dấu thì một số thông điệp có lỗi."
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
+msgid "If minimum"
+msgstr "Nếu tối thiểu"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "In exchange of"
+msgstr "Đổi lại"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_search
+msgid "Inactive"
+msgstr "Vô hiệu lực"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_rule__minimum_amount_tax_mode__incl
+msgid "Included"
+msgstr "Bao gồm"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#, python-format
+msgid "Invalid quantity."
+msgstr "số lượng không hợp lệ"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#: code:addons/loyalty/models/loyalty_rule.py:0
+#, python-format
+msgid "A coupon with the same code was found."
+msgstr "Một phiếu giảm giá có cùng mã đã được tìm thấy."
+
+#. module: th_sync_data
+#: model:ir.model.constraint,message:loyalty.constraint_loyalty_card_card_code_unique
+msgid "A coupon/loyalty card must have a unique code."
+msgstr "Phiếu giảm giá/thẻ khách hàng thân thiết phải có mã duy nhất."
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "A program must have at least one reward."
+msgstr "Một chương trình phải có ít nhất một phần thưởng."
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_card.py:0
+#: code:addons/loyalty/models/loyalty_card.py:0
+#, python-format
+msgid "A trigger with the same code as one of your coupon already exists."
+msgstr "Trình kích hoạt có cùng mã với một trong các phiếu giảm giá của bạn đã tồn tại."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_needaction
+msgid "Action Needed"
+msgstr "Hành động cần thiết"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_mail__active
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__active
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__active
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__active
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_search
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#. module: th_sync_data
+#. odoo-javascript
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#: code:addons/loyalty/static/src/xml/loyalty_templates.xml:0
+#, python-format
+msgid "Add"
+msgstr "Thêm"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Add a reward"
+msgstr "Thêm phần thưởng"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Add a rule"
+msgstr "Thêm quy tắc"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__all_discount_product_ids
+msgid "All Discount Product"
+msgstr "Tất cả sản phẩm giảm giá"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_form
+msgid "Among"
+msgstr "Giữa"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_generate_wizard__mode__anonymous
+msgid "Anonymous Customers"
+msgstr "Khách hàng ẩn danh"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__mode
+msgid "Application"
+msgstr "Ứng dụng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__applies_on
+msgid "Applies On"
+msgstr "Áp dụng cho"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_search
+msgid "Archived"
+msgstr "Đã lưu"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_mail__trigger__create
+msgid "At Creation"
+msgstr "lúc sáng tạo"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__message_attachment_count
+msgid "Attachment Count"
+msgstr "Số lượng tập tin đính kèm"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__trigger__auto
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_rule__mode__auto
+msgid "Automatic"
+msgstr "Tự động"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Automatic promotion: 10% discount on orders higher than $50"
+msgstr "Khuyến mãi tự động: giảm giá 10% cho đơn hàng trên $50"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_form
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_card_view_tree
+msgid "Balance"
+msgstr "Số dư"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.gift_card_report
+msgid "Barcode"
+msgstr "Mã vạch"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Buy 10 products, and get 10$ discount on the 11th one"
+msgstr "Mua 10 sản phẩm được giảm 10$ cho sản phẩm thứ 11"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "Buy 2 products and get a third one for free"
+msgstr "Mua 2 sản phẩm được tặng 1 sản phẩm thứ 3"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_program__program_type__buy_x_get_y
+msgid "Buy X Get Y"
+msgstr "Mua X tặng Y"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#: code:addons/loyalty/wizard/loyalty_generate_wizard.py:0
+#, python-format
+msgid "Can not generate coupon, no program is set."
+msgstr "Không thể tạo phiếu giảm giá, không có chương trình nào được đặt."
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_generate_wizard_view_form
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.gift_card_report
+msgid "Card expires"
+msgstr "Thẻ hết hạn"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__product_category_id
+msgid "Categories"
+msgstr "Phân loại"
+
+#. module: th_sync_data
+#: model:ir.model.fields.selection,name:loyalty.selection__loyalty_reward__discount_applicability__cheapest
+msgid "Cheapest Product"
+msgstr "Sản phẩm rẻ nhất"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__clear_wallet
+msgid "Clear Wallet"
+msgstr "Xóa ví"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_form
+msgid "Clear all promo point(s)"
+msgstr "Xóa tất cả (các) điểm khuyến mãi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__communication_plan_ids
+msgid "Communication Plan"
+msgstr "Kế hoạch truyền thông"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_program_view_form
+msgid "Communications"
+msgstr "Truyền thông"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_card__company_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__company_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_reward__company_id
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_rule__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_card.py:0
+#: code:addons/loyalty/models/loyalty_card.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "Soạn email"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:loyalty.field_loyalty_program__rule_ids
+msgid "Conditional rules"
+msgstr "Quy tắc có điều kiện"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_program__available_on
+msgid ""
+"\n"
+"        Manage where your program should be available for use.\n"
+"        "
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:loyalty.field_loyalty_program__portal_visible
+msgid ""
+"\n"
+"        Show in web portal, PoS customer ticket, eCommerce checkout, the number of points available and used by reward.\n"
+"        "
+msgstr ""
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid " (Max %s)"
+msgstr "(Tối đa %s)"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "%g%% on "
+msgstr "%g%% trên "
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "%s per order"
+msgstr "%s mỗi đơn hàng"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "%s per order on "
+msgstr "%s mỗi đơn hàng trên"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "%s per point"
+msgstr "%s mỗi điểm"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#: code:addons/loyalty/models/loyalty_reward.py:0
+#, python-format
+msgid "%s per point on "
+msgstr "%s mỗi điểm trên"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid "( Max"
+msgstr "( Tối đa"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_reward_view_kanban
+msgid "(if at least"
+msgstr "(nếu ít nhất"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:loyalty.loyalty_rule_view_kanban
+msgid "(tax excluded)"
+msgstr "(không bao gồm thuế)"
+
+#. module: th_sync_data
+#. odoo-python
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#: code:addons/loyalty/models/loyalty_program.py:0
+#, python-format
+msgid "2+1 Free"
+msgstr "2+1 miễn phí"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_product__combo_product_id
+#: model:ir.model.fields,field_description:combo_product.field_product_template__combo_product_id
+msgid "Combo Item"
+msgstr "Sản phẩm kết hợp"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:combo_product.product_template_form_view_combo
+msgid "Combo Items"
+msgstr "Sản phẩm kết hợp"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_product__is_combo
+#: model:ir.model.fields,field_description:combo_product.field_product_template__is_combo
+msgid "Combo Product"
+msgstr "Sản phẩm kết hợp"
+
+#. module: th_sync_data
+#: model_terms:ir.ui.view,arch_db:combo_product.product_template_search_view_combo_product
+msgid "Combo Products"
+msgstr "Sản phẩm kết hợp"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__create_date
+msgid "Created on"
+msgstr "Tạo bằng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,help:combo_product.field_product_combo__uom_id
+msgid "Default unit of measure used for all stock operations."
+msgstr "Đơn vị đo lường mặc định được sử dụng cho tất cả các hoạt động chứng khoán."
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__id
+msgid "ID"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__product_template_id
+msgid "Item"
+msgstr "Danh mục"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo____last_update
+msgid "Last Modified on"
+msgstr "Sửa đổi lần cuối vào"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: th_sync_data
+#: model:ir.model,name:combo_product.model_product_template
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__product_id
+msgid "Product"
+msgstr "Sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model,name:combo_product.model_product_combo
+msgid "Product packs"
+msgstr "Gói sản phẩm"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__price
+msgid "Product_price"
+msgstr ""
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__product_quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__uom_id
+msgid "Unit of Measure"
+msgstr "Đơn vị đo lường"
+
+#. module: th_sync_data
+#: model:ir.model.fields,field_description:combo_product.field_product_combo__name
+msgid "name"
+msgstr "Tên"

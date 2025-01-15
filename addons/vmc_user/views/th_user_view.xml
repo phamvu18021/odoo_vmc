@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- Kế thừa form view của res.partner trong module contacts -->
+        <record id="view_partner_form_custom" model="ir.ui.view">
+            <field name="name">res.partner.form.custom</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Chèn bảng sheet mới sau phần contact_addresses -->
+                <xpath expr="//sheet/notebook/page[@name='sales_purchases']" position="before">
+                    <page string="Thông tin tài khoản">
+                        <group>
+                            <field name="gender" />
+                            <field name="age" />
+                            <field name="password" />
+                            <field name="status" />
+                        </group>
+                    </page>
+                </xpath>
+
+                                <!-- Thêm tab mới cho ShortCourse -->
+                <xpath expr="//sheet/notebook" position="inside">
+                    <page string="Giỏ hàng">
+                        <field name="shortcourse_ids">
+                            <tree editable="bottom">
+                                <field name="shortcourse_id"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

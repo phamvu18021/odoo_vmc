@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Tree View for Image Shortcourse -->
+    <record id="view_image_shortcourse_tree" model="ir.ui.view">
+        <field name="name">image.shortcourse.tree</field>
+        <field name="model">image.shortcourse</field>
+        <field name="arch" type="xml">
+            <tree string="Image Shortcourse">
+                <field name="name"/>
+                <field name="image" widget="image" options="{'size': [64, 64]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Image Shortcourse -->
+    <record id="view_image_shortcourse_form" model="ir.ui.view">
+        <field name="name">image.shortcourse.form</field>
+        <field name="model">image.shortcourse</field>
+        <field name="arch" type="xml">
+            <form string="Image Shortcourse">
+                <group>
+                    <field name="name"/>
+                    <field name="image" widget="image" options="{'size': [256, 256]}"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to open Image Shortcourse -->
+    <record id="action_image_shortcourse" model="ir.actions.act_window">
+        <field name="name">Image Shortcourse</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">image.shortcourse</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first image shortcourse.
+            </p>
+        </field>
+    </record>
+</odoo>

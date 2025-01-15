@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="th_import_data_view_form" model="ir.ui.view">
+            <field name="name">th.import.form</field>
+            <field name="model">th.import</field>
+            <field name="arch" type="xml">
+                <form string="Import data">
+                    <group>
+                        <field name="file" filename="file_name" string="Excel file" required="1"/>
+                        <field name="th_model_id" required="1"/>
+                        <field name="th_type" required="1"/>
+                        <field name="th_is_active" groups="base.group_no_one"/>
+                    </group>
+                    <footer>
+                        <button string="Import" type="object" name="action_import_data" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="th_import_data_action" model="ir.actions.act_window">
+            <field name="name">Import Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">th.import</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="th_export_data_view_form" model="ir.ui.view">
+            <field name="name">report.export_xlsx.form</field>
+            <field name="model">report.export_xlsx</field>
+            <field name="arch" type="xml">
+                <form string="Import data">
+                    <group>
+                        <field name="th_model_id" required="1"/>
+                        <field name="th_data_export"/>
+                    </group>
+                    <footer>
+                        <button string="Xuất file" type="object" name="action_export_data" class="btn-primary"/>
+                        <button string="Hủy" special="cancel" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="th_export_data_action" model="ir.actions.act_window">
+            <field name="name">Export Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">report.export_xlsx</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

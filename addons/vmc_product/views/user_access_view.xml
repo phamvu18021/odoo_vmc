@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+
+        <!-- Tree View -->
+        <record id="view_user_access_tree" model="ir.ui.view">
+            <field name="name">user.access.tree</field>
+            <field name="model">user.access</field>
+            <field name="arch" type="xml">
+                <tree string="User Access Records">
+                    <field name="name"/>
+                    <field name="partner"/>
+                    <field name="access_count"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_user_access_form" model="ir.ui.view">
+            <field name="name">user.access.form</field>
+            <field name="model">user.access</field>
+            <field name="arch" type="xml">
+                <form string="User Access Record">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner"/>
+                            <field name="access_count"/> <!-- Đếm truy cập không thể chỉnh sửa -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action để mở View -->
+        <record id="action_user_access" model="ir.actions.act_window">
+            <field name="name">User Access Records</field>
+            <field name="res_model">user.access</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_user_access_tree"/>
+        </record>
+    </data>
+</odoo>

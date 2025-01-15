@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="th_menu_promotional_event"
+              name="Promotional Event"
+              parent="sale.product_menu_catalog"
+              action="action_th_sync_data_promotional_event"
+              groups="sales_team.group_sale_manager"
+              sequence="90"
+    />
+</odoo>

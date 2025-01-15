@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    <record id="loyalty_reward_view_form_inherit" model="ir.ui.view">-->
+<!--        <field name="name">loyalty_reward_view_form_inherit</field>-->
+<!--        <field name="model">loyalty.reward</field>-->
+<!--        <field name="inherit_id" ref="loyalty.loyalty_reward_view_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="sheet/group/group/field[@name='discount_max_amount']" position="attributes">-->
+<!--                <attribute name="required">True</attribute>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

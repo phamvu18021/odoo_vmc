@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="th_view_form_promotional_event" model="ir.ui.view">
+        <field name="name">Promotional Event</field>
+        <field name="model">th.promotional.event</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Promotional Event">
+                <sheet>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <field name="create_uid" invisible="1"/>
+                            <field name="name" attrs="{'readonly': [('create_uid' ,'!=', False)]}"/>
+                            <field name="description" attrs="{'readonly': [('create_uid' ,'!=', False)]}"/>
+                            <field name="active_voucher"/>
+                            <field name="voucher" widget="many2many_tags" options="{'no_create': True}" attrs="{'readonly': [('create_uid' ,'!=', False)]}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="th_view_tree_promotional_event" model="ir.ui.view">
+        <field name="name">Promotional Event Tree</field>
+        <field name="model">th.promotional.event</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Promotional Event">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="active_voucher"/>
+                <field name="voucher" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_th_sync_data_promotional_event" model="ir.actions.act_window">
+        <field name="name">Promotional Event</field>
+        <field name="res_model">th.promotional.event</field>
+        <field name="target">main</field>
+        <field name="domain">[]</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('th_view_tree_promotional_event')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('th_view_form_promotional_event')})]"/>
+    </record>
+</odoo>

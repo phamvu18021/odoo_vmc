@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_th_api_server,account_th_api_server,model_th_api_server,,1,1,1,1
+access_th_import,account_th_import,model_th_import,,1,1,1,1
+access_th_import_cus,account_th_import_cus,model_th_import_cus,,1,1,1,1
+access_report_export_xlsx,account_report_export_xlsx,model_report_export_xlsx,,1,1,1,1
+access_th_unsend_assign,account_th_unsend_assign,model_th_unsend_assign,,1,1,1,1

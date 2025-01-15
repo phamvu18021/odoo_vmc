@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="th_base.DomainField" t-inherit="web.DomainField" t-inherit-mode="primary" owl="1">
+        <xpath expr="//div[hasclass('o_field_domain_panel')]" position="replace"/>
+    </t>
+
+</templates>

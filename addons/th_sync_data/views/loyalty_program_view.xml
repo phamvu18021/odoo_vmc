@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="loyalty_program_view_form_inherit" model="ir.ui.view">
+        <field name="name">New view loyalty program</field>
+        <field name="model">loyalty.program</field>
+        <field name="type">form</field>
+        <field name="mode">primary</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="loyalty.loyalty_program_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="before">
+                <field name="start_date" string="Start Date"/>
+            </xpath>
+            <xpath expr="//field[@name='date_to']" position="replace">
+                <field name="thc_date_to" string="Validity"/>
+                <field name="is_preorder" string="Preorder"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="loyalty_reward_view_form_inherit" model="ir.ui.view">
+        <field name="name">New view loyalty reward</field>
+        <field name="model">loyalty.reward</field>
+        <field name="type">form</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="loyalty.loyalty_reward_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='reward_type']" position="before">
+                <label for="condition_des" string="Condition Description"/>
+                <div class="o_row">
+                    <field name="condition_des" class="col-2 oe_inline pe-2"/>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']" position="after">
+                <field name="reward_product_category" class="col-2 oe_inline pe-2" string="Categories"/>
+            </xpath>
+            <xpath expr="//field[@name='reward_product_id']" position="attributes">
+                <attribute name="options">{'no_create_edit': True, 'no_create':True, 'no_open':True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='discount_product_ids']" position="attributes">
+                <attribute name="options">{'no_create_edit': True, 'no_create':True, 'no_open':True}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='discount_product_category_id']" position="attributes">
+                <attribute name="options">{'no_create_edit': True, 'no_create':True, 'no_open':True}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="loyalty_program_discount_loyalty_action_inherit" model="ir.actions.act_window">
+        <field name="name">Discount &amp; Loyalty</field>
+        <field name="res_model">loyalty.program</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('program_type', 'not in', ('gift_card', 'ewallet'))]</field>
+        <field name="view_ids"
+               eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('loyalty.loyalty_program_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('loyalty_program_view_form_inherit')})]"/>
+        <field name="help" type="html">
+            <div class="o_loyalty_not_found container">
+                <h1>No program found.</h1>
+                <p class="lead">Create a new one from scratch, or use one of the templates below.</p>
+            </div>
+        </field>
+    </record>
+
+    <menuitem
+        id="sale_loyalty.menu_discount_loyalty_type_config"
+        action="th_sync_data.loyalty_program_discount_loyalty_action_inherit"
+        name="Discount &amp; Loyalty"
+        parent="sale.product_menu_catalog"
+        groups="sales_team.group_sale_manager"
+        sequence="40"
+    />
+</odoo>

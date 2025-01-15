@@ -7,7 +7,7 @@ class ShortCourse(models.Model):
     _inherit = "product.template"
     slug_url = fields.Char('Slug URL', store="true")
     idWordPress = fields.Char(string='idWordPress', default='0')
-    th_teacher_id = fields.Many2one('th.teacher', string="Giáo viên", required=True)
+    th_teacher_id = fields.Many2one('th.teacher', string="Giáo viên")
     time = fields.Char('Ngày ra mắt')
     duration = fields.Char('Thời lượng')
     description = fields.Text('Mô tả')

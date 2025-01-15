@@ -68,7 +68,7 @@ class ShortCourse(models.Model):
                 shortcourse.th_img_thumb_url = "false"
 
     def open_create_wordpress_link(self, *args, **kwargs):
-        base_url = 'http://10.10.51.16:8686/wp-admin/post-new.php/post-new.php?cat=7&idOdoo='
+        base_url = 'http://10.10.51.16:8686/wp-admin/post-new.php?cat=7&idOdoo='
         random_part = self.id or ''
         full_url = f'{base_url}{random_part}'
         return {

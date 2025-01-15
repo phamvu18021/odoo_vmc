@@ -68,7 +68,7 @@ async def get_product_categories(
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        categories = env['product.category'].sudo().search([[('product_count', '>', 0)]])
+        categories = env['product.category'].sudo().search([])
         categories_data = []
 
         for category in categories:

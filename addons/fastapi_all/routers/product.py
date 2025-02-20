@@ -14,7 +14,7 @@ from ..schemas.product import ShortCourseWordPressRequest, ListShortCourseRespon
     CourseTeacher, CheckDiscountResponse, DiscountDetail, OrderData, PartnerOrdersResponse, UserAccessResponse, \
     StatsResponse, OrderLineGet, StatsData, CheckDiscountRequest, \
     PartnerOrdersRequest, UserAccessRequest, GetCourseBySlugData, CreateSaleOrderRequest, ProductCategoriesResponse, \
-    SubCategory, CategoryData, ListTeachersResponse
+    SubCategory, CategoryData, ListTeachersResponse, ProductCategoryRequest
 from ...fastapi.dependencies import odoo_env
 
 router = APIRouter()
@@ -58,8 +58,47 @@ async def admission_wordpress(
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# @router.post("/product-categories", response_model=ProductCategoriesResponse)
+# async def get_product_categories(
+#         env: Environment = Depends(odoo_env),
+#         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
+# ):
+#     token = credentials.credentials
+#     if token != ODOO_SECRET:
+#         raise HTTPException(status_code=403, detail="Invalid secret code")
+#
+#     try:
+#         categories = env['product.category'].sudo().search([('product_count', '>', 0)])
+#         categories_data = []
+#
+#         for category in categories:
+#             parent_category = None
+#             if category.parent_id:
+#                 parent_category = SubCategory(id=category.parent_id.id, name=category.parent_id.name,
+#                                               slug=category.parent_id.slug)
+#
+#             child_categories = [
+#                 SubCategory(id=child.id, name=child.name, slug=child.slug)
+#                 for child in category.child_id
+#             ]
+#
+#             categories_data.append(
+#                 CategoryData(
+#                     id=category.id,
+#                     name=category.name,
+#                     slug=category.slug,
+#                     parent_category=parent_category,
+#                     child_categories=child_categories
+#                 )
+#             )
+#
+#         return ProductCategoriesResponse(success=True, data=categories_data)
+#     except Exception as e:
+#         return ProductCategoriesResponse(success=False, error=str(e))
+
 @router.post("/product-categories", response_model=ProductCategoriesResponse)
 async def get_product_categories(
+        request: ProductCategoryRequest,
         env: Environment = Depends(odoo_env),
         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
@@ -68,39 +107,139 @@ async def get_product_categories(
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        categories = env['product.category'].sudo().search([])
-        categories_data = []
+        # Lấy tất cả danh mục từ Odoo
+        categories = env['product.category'].sudo().search_read(
+            [],  # Không lọc product_count
+            ['id', 'name', 'slug', 'parent_id']
+        )
 
-        for category in categories:
-            parent_category = None
-            if category.parent_id:
-                parent_category = SubCategory(id=category.parent_id.id, name=category.parent_id.name,
-                                              slug=category.parent_id.slug)
+        # Tạo dictionary để tra cứu nhanh
+        category_map = {cat['id']: cat for cat in categories}
 
-            child_categories = [
-                SubCategory(id=child.id, name=child.name, slug=child.slug)
-                for child in category.child_id
-            ]
-
-            categories_data.append(
-                CategoryData(
-                    id=category.id,
-                    name=category.name,
-                    slug=category.slug,
-                    parent_category=parent_category,
-                    child_categories=child_categories
-                )
+        # Nếu type = "all", trả về danh sách phẳng
+        if request.type == "all":
+            return ProductCategoriesResponse(
+                success=True,
+                data=[
+                    CategoryData(
+                        id=cat['id'],
+                        name=cat['name'],
+                        slug=cat['slug'],
+                        child_categories=[]  # Không cần hiển thị danh mục con ở đây
+                    ) for cat in categories
+                ]
             )
 
-        return ProductCategoriesResponse(success=True, data=categories_data)
-    except Exception as e:
-        return ProductCategoriesResponse(success=False, error=str(e))
+        # Nếu type = "consensus", xây dựng cây danh mục
+        def build_category_tree(category_id):
+            category = category_map.get(category_id)
+            if not category:
+                return None  # Tránh lỗi nếu danh mục không tồn tại
 
+            child_categories = [
+                build_category_tree(child_id)
+                for child_id in category_map
+                if category_map[child_id].get('parent_id') and category_map[child_id]['parent_id'][0] == category_id
+            ]
+
+            child_categories = [c for c in child_categories if c]
+
+            return CategoryData(
+                id=category['id'],
+                name=category['name'],
+                slug=category['slug'],
+                child_categories=child_categories
+            )
+
+        # Lọc ra danh mục gốc (không có parent_id)
+        root_categories = [
+            build_category_tree(cat['id'])
+            for cat in categories if not cat.get('parent_id')
+        ]
+
+        return ProductCategoriesResponse(success=True, data=root_categories)
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# @router.post("/list-shortcourse", response_model=ListShortCourseResponse)
+# async def list_short_course(
+#         env: Annotated[Environment, Depends(odoo_env)],
+#         categories: Optional[str] = None,  # Danh sách slug của danh mục, ví dụ: "nghe-thuat,cong-nghe"
+#         teacher: Optional[str] = None,
+#         perpage: int = 9,
+#         page: int = 1,
+#         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
+# ):
+#     token = credentials.credentials
+#     if token != ODOO_SECRET:
+#         raise HTTPException(status_code=403, detail="Invalid secret code")
+#
+#     try:
+#         # Xây dựng domain lọc
+#         domain = [('purchase_ok', '=', True)]
+#         if categories != "all":
+#             # Tách các slug từ categories
+#             category_slugs = categories.split(',')
+#
+#             # Lấy các danh mục từ slug
+#             list_categories = env['product.category'].sudo().search([('slug', 'in', category_slugs)])
+#             all_category_ids = set(list_categories.ids)
+#
+#             # Lấy danh mục con (nếu có)
+#             for category in list_categories:
+#                 child_categories = category.child_id
+#                 all_category_ids.update(child_categories.ids)
+#
+#             domain.append(('categ_id', 'in', list(all_category_ids)))
+#
+#         if teacher != 'all':
+#             domain.append(('th_teacher_id.name_to_slug', '=', teacher))
+#
+#         # Tính toán phân trang
+#         offset = (page - 1) * perpage if perpage > 0 else 0
+#         records = env['product.template'].sudo().search(domain, offset=offset, limit=perpage)
+#
+#         # Xử lý dữ liệu trả về
+#         data = [
+#             GetCourseBySlugData(
+#                 id=record.id,
+#                 name=record.with_context({'lang': 'vi_VN'}).name,
+#                 image=record.image_shortcourse_url or "",
+#                 category=str(record.categ_id.name) if record.categ_id else None,
+#                 category_slug=record.categ_id.slug,
+#                 teacher=CourseTeacher(
+#                     id=record.th_teacher_id.id,
+#                     name=record.th_teacher_id.name,
+#                     image=record.th_teacher_id.th_img_banner_url,
+#                     name_to_slug=record.th_teacher_id.name_to_slug,
+#                     description=record.th_teacher_id.description
+#                 ),
+#                 price=record.list_price,
+#                 duration=record.duration,
+#                 time=record.time,
+#                 desc=record.description,
+#                 slug_url=record.slug_url
+#             )
+#             for record in records
+#         ]
+#
+#         total_documents = len(env['product.template'].sudo().search(domain))
+#         is_last_page = (offset + perpage) >= total_documents
+#
+#         return ListShortCourseResponse(
+#             status="200",
+#             message="Successfully fetched short courses",
+#             data=ListShortCourseData(short_course=data, is_last_page=is_last_page, total_documents=total_documents)
+#         )
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
 
 @router.post("/list-shortcourse", response_model=ListShortCourseResponse)
 async def list_short_course(
         env: Annotated[Environment, Depends(odoo_env)],
-        categories: Optional[str] = None,  # Danh sách slug của danh mục, ví dụ: "nghe-thuat,cong-nghe"
+        categories: Optional[str] = None,
         teacher: Optional[str] = None,
         perpage: int = 9,
         page: int = 1,
@@ -111,64 +250,69 @@ async def list_short_course(
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        # Xây dựng domain lọc
         domain = [('purchase_ok', '=', True)]
+
+        # Xử lý danh mục
         if categories != "all":
-            # Tách các slug từ categories
             category_slugs = categories.split(',')
 
-            # Lấy các danh mục từ slug
+            # Tìm danh mục cha theo slug
             list_categories = env['product.category'].sudo().search([('slug', 'in', category_slugs)])
-            all_category_ids = set(list_categories.ids)
 
-            # Lấy danh mục con (nếu có)
-            for category in list_categories:
-                child_categories = category.child_id
-                all_category_ids.update(child_categories.ids)
+            if list_categories:
+                # Lấy tất cả danh mục con của danh mục cha, bao gồm nhiều cấp độ
+                all_category_ids = env['product.category'].sudo().search([('id', 'child_of', list_categories.ids)]).ids
+                domain.append(('categ_id', 'in', all_category_ids))
 
-            domain.append(('categ_id', 'in', list(all_category_ids)))
-
-        if teacher != 'all':
+        # Xử lý giáo viên
+        if teacher and teacher != 'all':
             domain.append(('th_teacher_id.name_to_slug', '=', teacher))
 
-        # Tính toán phân trang
-        offset = (page - 1) * perpage if perpage > 0 else 0
+        # Phân trang
+        offset = (page - 1) * perpage
         records = env['product.template'].sudo().search(domain, offset=offset, limit=perpage)
 
-        # Xử lý dữ liệu trả về
-        data = [
-            GetCourseBySlugData(
-                id=record.id,
-                name=record.with_context({'lang': 'vi_VN'}).name,
-                image=record.image_shortcourse_url or "",
-                category=str(record.categ_id.name) if record.categ_id else None,
-                category_slug=record.categ_id.slug,
-                teacher=CourseTeacher(
+        # Xử lý dữ liệu
+        data = []
+        for record in records:
+            teacher_data = None
+            if record.th_teacher_id:
+                teacher_data = CourseTeacher(
                     id=record.th_teacher_id.id,
                     name=record.th_teacher_id.name,
                     image=record.th_teacher_id.th_img_banner_url,
                     name_to_slug=record.th_teacher_id.name_to_slug,
                     description=record.th_teacher_id.description
-                ),
+                )
+
+            data.append(GetCourseBySlugData(
+                id=record.id,
+                name=record.with_context({'lang': 'vi_VN'}).name,
+                image=record.image_shortcourse_url or "",
+                category=record.categ_id.name if record.categ_id else None,
+                category_slug=record.categ_id.slug if record.categ_id else None,
+                teacher=teacher_data,
                 price=record.list_price,
                 duration=record.duration,
                 time=record.time,
                 desc=record.description,
                 slug_url=record.slug_url
-            )
-            for record in records
-        ]
+            ))
 
-        total_documents = len(env['product.template'].sudo().search(domain))
+        total_documents = env['product.template'].sudo().search_count(domain)
         is_last_page = (offset + perpage) >= total_documents
 
         return ListShortCourseResponse(
             status="200",
             message="Successfully fetched short courses",
-            data=ListShortCourseData(short_course=data, is_last_page=is_last_page, total_documents=total_documents)
+            data=ListShortCourseData(
+                short_course=data,
+                is_last_page=is_last_page,
+                total_documents=total_documents
+            )
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
 @router.post("/get_course_by_slug", response_model=GetCourseBySlugResponse)

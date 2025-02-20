@@ -39,6 +39,12 @@ class CourseTeacher(BaseModel):
         return value if value is not False else None
 
 
+class SubCategory(BaseModel):
+    id: int
+    name: str
+    slug: str
+
+
 class GetCourseBySlugData(BaseModel):
     id: int
     name: str
@@ -92,8 +98,7 @@ class CategoryData(BaseModel):
     id: int
     name: str
     slug: Optional[str] = None
-    parent_category: Optional[SubCategory]
-    child_categories: List[SubCategory]
+    child_categories: List["CategoryData"]  # Danh sách danh mục con (đệ quy)
 
     @field_validator("slug",
                      mode="before")
@@ -105,6 +110,10 @@ class ProductCategoriesResponse(BaseModel):
     success: bool
     data: Optional[List[CategoryData]] = None
     error: Optional[str] = None
+
+
+class ProductCategoryRequest(BaseModel):
+    type: str  # "all" hoặc "consensus"
 
 
 class OrderLine(BaseModel):

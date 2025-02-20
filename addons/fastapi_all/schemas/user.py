@@ -1,6 +1,7 @@
 # schemas.py
 from pydantic import BaseModel
 from typing import List, Optional, Dict
+from pydantic import BaseModel, field_validator
 
 
 class UserInfo(BaseModel):
@@ -10,6 +11,13 @@ class UserInfo(BaseModel):
     age: Optional[int] = None
     phone: Optional[str] = None
     gender: Optional[str] = None
+    career: Optional[str] = None
+
+    @field_validator("name", "email", "image", "age", "phone",
+                     "gender", "career",
+                     mode="before")
+    def convert_false_to_none(cls, value):
+        return value if value is not False else None
 
 
 class RegisterRequest(BaseModel):
@@ -28,13 +36,8 @@ class LoginRequest(BaseModel):
     password: str
 
 
-class UserInfoRequest(BaseModel):
-    partner_id: int
-
-
 class LoginResponse(BaseModel):
     success: Optional[str] = None
-    partner_id: Optional[int] = None
     user: Optional[UserInfo] = None
     error: Optional[str] = None
 
@@ -45,16 +48,15 @@ class UserInfoResponse(BaseModel):
 
 
 class UpdateUserInfoRequest(BaseModel):
-    partner_id: int
     name: Optional[str] = None
     email: Optional[str] = None
     age: Optional[int] = None
     phone: Optional[str] = None
     gender: Optional[str] = None
+    career: Optional[str] = None
 
 
 class ChangePasswordRequest(BaseModel):
-    session_log_id: int
     old_password: str
     new_password: str
 

@@ -1,11 +1,13 @@
 import os
+import jwt
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from fastapi import APIRouter, Depends, HTTPException, Header, Request
-from typing import Optional, Annotated
+from typing import Annotated
 from odoo.api import Environment
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-
-from ..schemas.user import RegisterRequest, ActivateAccountRequest, LoginRequest, LoginResponse, UserInfoRequest, \
+import pytz
+from ..schemas.user import RegisterRequest, ActivateAccountRequest, LoginRequest, \
     UserInfoResponse, UpdateUserInfoRequest, ChangePasswordRequest, CheckEmailRequest, ReissuePasswordRequest, UserInfo
 from ...fastapi.dependencies import odoo_env
 
@@ -13,8 +15,34 @@ router = APIRouter()
 
 load_dotenv()
 ODOO_SECRET = os.getenv('TOKEN')
+JWT_SECRET = os.getenv('JWT_SECRET')
+JWT_ALGORITHM = "HS256"
+TOKEN_EXPIRY_DAYS = 2
 
 auth_scheme = HTTPBearer()
+
+
+# def create_jwt_token(user_id: int):
+#     expiration = datetime.now(pytz.utc) + timedelta(days=TOKEN_EXPIRY_DAYS)
+#     payload = {"id": user_id, "exp": expiration}
+#     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
+
+def create_jwt_token(user_id: int):
+    expiration = datetime.now(pytz.utc) + timedelta(days=TOKEN_EXPIRY_DAYS)
+    payload = {
+        "id": user_id,
+        "exp": int(expiration.timestamp())  # Convert datetime to UNIX timestamp
+    }
+    return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
+
+
+def decode_jwt_token(token: str):
+    try:
+        return jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token đã hết hạn")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Token không hợp lệ")
 
 
 @router.post("/register", response_model=dict)
@@ -95,10 +123,11 @@ async def login(
 
         if partner.status == False:
             return {"error": "Tài khoản của bạn chưa được kích hoạt. Vui lòng kiểm tra email để kích hoạt."}
+        token = create_jwt_token(partner.id)
 
         return {
             "success": "Đăng nhập thành công",
-            "partner_id": partner.id,
+            "token": token,
             "user": UserInfo(
                 email=partner.email,
                 name=partner.name,
@@ -113,21 +142,17 @@ async def login(
 
 @router.post("/get_user_info", response_model=UserInfoResponse)
 async def get_user_info(
-        request: UserInfoRequest,
         env: Annotated[Environment, Depends(odoo_env)],
         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
-    token = credentials.credentials
-    if token != ODOO_SECRET:
-        raise HTTPException(status_code=403, detail="Invalid secret code")
-
+    token_data = decode_jwt_token(credentials.credentials)
     try:
-        partner = env['res.partner'].sudo().browse(request.partner_id)
-
+        partner = env['res.partner'].sudo().browse(token_data["id"])
         if not partner.exists():
             return {"error": "Không tìm thấy tài khoản"}
 
         user_info = UserInfo(
+            career=partner.function,
             name=partner.name,
             email=partner.email,
             phone=partner.phone,
@@ -146,13 +171,11 @@ async def update_user_info(
         env: Annotated[Environment, Depends(odoo_env)],
         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
-    token = credentials.credentials
-    if token != ODOO_SECRET:
-        raise HTTPException(status_code=403, detail="Invalid secret code")
+    token_data = decode_jwt_token(credentials.credentials)
 
     try:
         # Lấy đối tượng res.partner dựa trên partner_id
-        partner = env['res.partner'].sudo().browse(request.partner_id)
+        partner = env['res.partner'].sudo().browse(token_data["id"])
 
         # Kiểm tra sự tồn tại của đối tượng
         if not partner.exists():
@@ -160,6 +183,7 @@ async def update_user_info(
 
         # Cập nhật thông tin đối tượng với các dữ liệu mới
         update_data = {
+            'function': request.career,
             'name': request.name,
             'email': request.email,
             'age': request.age,
@@ -179,13 +203,11 @@ async def change_password(
         env: Annotated[Environment, Depends(odoo_env)],
         credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
-    token = credentials.credentials
-    if token != ODOO_SECRET:
-        raise HTTPException(status_code=403, detail="Invalid secret code")
+    token_data = decode_jwt_token(credentials.credentials)
 
     try:
         # Lấy đối tượng res.partner dựa trên session_log_id
-        partner = env['res.partner'].sudo().browse(request.session_log_id)
+        partner = env['res.partner'].sudo().browse(token_data["id"])
 
         # Kiểm tra sự tồn tại của đối tượng
         if not partner.exists():

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <!-- Kế thừa form view của res.partner trong module contacts -->
@@ -15,18 +16,6 @@
                             <field name="password" />
                             <field name="status" />
                         </group>
-                    </page>
-                </xpath>
-
-                                <!-- Thêm tab mới cho ShortCourse -->
-                <xpath expr="//sheet/notebook" position="inside">
-                    <page string="Giỏ hàng">
-                        <field name="shortcourse_ids">
-                            <tree editable="bottom">
-                                <field name="shortcourse_id"/>
-                                <field name="quantity"/>
-                            </tree>
-                        </field>
                     </page>
                 </xpath>
             </field>

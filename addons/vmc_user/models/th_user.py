@@ -18,6 +18,7 @@ class ResPartner(models.Model):
         string="Short Courses"
     )
 
+
 class PartnerShortCourseRel(models.Model):
     _name = 'partner.shortcourse.rel'
     _description = 'Partner ShortCourse Relation'

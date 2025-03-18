@@ -40,9 +40,9 @@ def decode_jwt_token(token: str):
     try:
         return jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
     except jwt.ExpiredSignatureError:
-        raise HTTPException(status_code=401, detail="Token đã hết hạn")
+        raise HTTPException(status_code=401, detail={"error": "Token đã hết hạn"})
     except jwt.InvalidTokenError:
-        raise HTTPException(status_code=401, detail="Token không hợp lệ")
+        raise HTTPException(status_code=401, detail={"error": "Token không hợp lệ"})
 
 
 @router.post("/register", response_model=dict)
@@ -58,7 +58,7 @@ async def register(
     try:
         # Kiểm tra nếu email đã tồn tại
         existing_partner = env['res.partner'].sudo().search([('email', '=', request.email)])
-        if existing_partner:
+        if existing_partner and existing_partner.password and existing_partner.status:
             return {"error": "Email đã tồn tại"}
 
         new_partner = env['res.partner'].sudo().create({
@@ -71,7 +71,7 @@ async def register(
 
         return {"success": "Tạo tài khoản thành công", "partner_id": new_partner.id}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Server error: {str(e)}")
+        raise HTTPException(status_code=500, detail={"error": str(e)})
 
 
 @router.post("/activate_account", response_model=dict)
@@ -162,7 +162,7 @@ async def get_user_info(
 
         return {"success": "Lấy thông tin thành công", "user_info": user_info}
     except Exception as e:
-        return HTTPException(status_code=500, content={"error": str(e)})
+        return HTTPException(status_code=500, detail={"error": str(e)})
 
 
 @router.post("/update_user_info")
@@ -194,7 +194,7 @@ async def update_user_info(
 
         return {"success": "Cập nhật thông tin thành công"}
     except Exception as e:
-        return HTTPException(status_code=500, content={"error": str(e)})
+        return HTTPException(status_code=500, detail={"error": str(e)})
 
 
 @router.post("/change_password")
@@ -222,7 +222,7 @@ async def change_password(
 
         return {"success": "Đổi mật khẩu thành công"}
     except Exception as e:
-        return HTTPException(status_code=500, content={"error": str(e)})
+        return HTTPException(status_code=500, detail={"error": str(e)})
 
 
 @router.post("/check_email")
@@ -241,10 +241,13 @@ async def check_email(
 
         if not partner:
             return {"exists": False, "message": "Email không tồn tại"}
-
+        if not partner.status and not partner.password:
+            return {"exists": False, "message": "Email chưa được đăng ký"}
+        if not partner.status and partner.password:
+            return {"exists": False, "message": "Email chưa được kích hoạt"}
         return {"exists": True, "message": "Email đã tồn tại"}
     except Exception as e:
-        return HTTPException(status_code=500, content={"error": str(e)})
+        return HTTPException(status_code=500, detail={"error": str(e)})
 
 
 @router.post("/reissue_password")
@@ -269,4 +272,4 @@ async def reissue_password(
 
         return {"success": "Mật khẩu đã được cập nhật thành công", "partner_id": partner.id}
     except Exception as e:
-        return HTTPException(status_code=500, content={"error": str(e)})
+        return HTTPException(status_code=500, detail={"error": str(e)})

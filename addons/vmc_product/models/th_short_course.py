@@ -13,8 +13,8 @@ class ShortCourse(models.Model):
     description = fields.Text('Mô tả')
     th_img_thumb_url = fields.Char('Image URL', compute="_compute_img_thumb_url")
     image_shortcourse_url = fields.Char('Image ShortCourse URL', compute="_compute_image_shortcourse_url")
-
     name_to_slug = fields.Char(string="Slug từ tên")
+    product_id_sam = fields.Float(string="Product ID SAM")
 
     @api.model
     def create(self, values):
@@ -68,7 +68,7 @@ class ShortCourse(models.Model):
                 shortcourse.th_img_thumb_url = "false"
 
     def open_create_wordpress_link(self, *args, **kwargs):
-        base_url = 'http://10.10.51.16:8686/wp-admin/post-new.php?cat=7&idOdoo='
+        base_url = 'http://localhost:10017/wp-admin/post-new.php?cat=7&idOdoo='
         random_part = self.id or ''
         full_url = f'{base_url}{random_part}'
         return {
@@ -78,7 +78,7 @@ class ShortCourse(models.Model):
         }
 
     def open_edit_wordpress_link(self, *args, **kwargs):
-        base_url = 'http://10.10.51.16:8686/wp-admin/post.php?post='
+        base_url = 'http://localhost:10017/wp-admin/post.php?post='
         random_part = self.idWordPress or ''
         idOdoo = self.id or ''
         full_url = f'{base_url}{random_part}&action=edit&idOdoo={idOdoo}'

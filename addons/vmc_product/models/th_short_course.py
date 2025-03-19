@@ -13,7 +13,7 @@ class ShortCourse(models.Model):
     description = fields.Text('Mô tả')
     th_img_thumb_url = fields.Char('Image URL', compute="_compute_img_thumb_url")
     image_shortcourse_url = fields.Char('Image ShortCourse URL', compute="_compute_image_shortcourse_url")
-
+    product_id_sam = fields.Float(string="Product ID SAM")
     name_to_slug = fields.Char(string="Slug từ tên")
 
     @api.model

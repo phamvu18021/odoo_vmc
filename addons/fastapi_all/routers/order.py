@@ -4,7 +4,6 @@ from fastapi import APIRouter, Depends, HTTPException, Request, BackgroundTasks
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from typing import List, Optional, Dict, Union
 import requests
-
 from .user import decode_jwt_token
 from odoo.api import Environment
 from ..schemas.order import OrderItem, CreateOrderResponse, CreateOrderRequest, ApplyPromotionRequest, \
@@ -104,7 +103,6 @@ def get_order_details(
     try:
         # 🔹 Lấy đơn hàng
         order = env["sale.order"].sudo().browse(order_id)
-        print(type(order_id), order_id)
         if not order.exists():
             return APIResponse(success=False, message="Order not found")
 
@@ -199,7 +197,7 @@ def get_claimable_promotions(
                     reward_id=reward.id,
                     reward_description=reward.description,
                     discount=reward.discount,
-                    reward_conditions=reward.conditions_description,
+                    reward_conditions=reward.conditions_description if reward.conditions_description else None,
                     reward_product_name=reward.reward_product_id.name if reward.reward_product_id else None,
                     reward_product_price=reward.reward_product_id.list_price if reward.reward_product_id else None,
                     program_type=reward.program_id.program_type,
@@ -266,7 +264,6 @@ def apply_promotion(
         order_data = OrderData(
             order_id=order.id,
             partner_name=order.partner_id.name,
-            partner_email=order.partner_id.email,
             partner_phone=order.partner_id.phone or order.partner_id.mobile,
             items=[
                 OrderItem(
@@ -281,7 +278,7 @@ def apply_promotion(
                 promotion_id=selected_reward.program_id.id,
                 name=selected_reward.program_id.name,
                 reward_id=selected_reward.id,
-                reward_description=selected_reward.description,
+                reward_description=selected_reward.description if selected_reward.description else None,
                 discount=selected_reward.discount,
                 reward_conditions=selected_reward.conditions_description if selected_reward.conditions_description else None,
                 reward_product_name=selected_reward.reward_product_id.name if selected_reward.reward_product_id else None,
@@ -468,7 +465,6 @@ def update_order(
         order_data = OrderData(
             order_id=order.id,
             partner_name=order.partner_id.name,
-            partner_email=order.partner_id.email,
             partner_phone=order.partner_id.phone or order.partner_id.mobile,
             items=[
                 OrderItem(
@@ -533,12 +529,17 @@ def confirm_payment(
         return APIResponse(success=False, message=f"Lỗi hệ thống: {str(e)}")
 
 
+# sync_url = "https://api.sambala.net/api/saleorders"
+#"api-key": "sambala@2024"
 def sync_order_data(order):
-    sync_url = "https://webhook.site/e0e2e348-db91-481e-9ed9-281e2938cc46"
+    sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
+    # sync_url = "http://10.10.51.17:8016/c1/api/saleorders"
+    # sync_url = "https://sam.aumpilot.com/vi/c1/api/saleorders"
     # sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
     headers = {"Content-Type": "application/json",
                "api-key": "1"
                }
+    # headers = {"Content-Type": "application/json", "api-key": "sambala@2024"}
 
     sync_data = {
         "partner_info": {
@@ -546,7 +547,6 @@ def sync_order_data(order):
             "phone": order.partner_id.phone if order.partner_id else "",
             "email": order.partner_id.email if order.partner_id else "",
         },
-        "name": order.name,
         "th_order_ecm_id": order.id,
         "th_utm_source": "ome",
         "ecm_type": "ome",
@@ -568,13 +568,12 @@ def sync_order_data(order):
             for line in order.order_line
         ],
     }
-
     try:
-        response = requests.post(sync_url, json=sync_data, headers=headers, timeout=40)
+        response = requests.post(sync_url, json=sync_data, headers=headers, timeout=20)
         response.raise_for_status()
-        print(f"Đồng bộ thành công đơn hàng {order.id}")
+        print(f"✅ Đồng bộ thành công đơn hàng {order.id}")
     except requests.exceptions.RequestException as e:
-        print(f"[SYNC ERROR] Không thể đồng bộ đơn hàng {order.id}: {str(e)}")
+        print(f"❌ [SYNC ERROR] Không thể đồng bộ đơn hàng {order.id}: {str(e)}")
 
 
 @router.put("/update-order-status/{order_id}", response_model=APIResponse)
@@ -583,18 +582,15 @@ def update_order_status(
         data: UpdateOrderStatusRequest,
         background_tasks: BackgroundTasks,
         env: Annotated[Environment, Depends(odoo_env)],
-        token: str = Depends(get_auth_token)  # Dùng hàm tự viết thay vì `auth_scheme`
+        token: str = Depends(get_auth_token)
 ):
     if token != ODOO_SECRET:
         raise HTTPException(
             status_code=403,
-            detail=APIResponse(success=False, message="Mã bảo mật không đúng").model_dump()
+            detail=APIResponse(success=False, message="Mã bảo mật không đúng").model_dump()
         )
-
     try:
-        # 🔹 Tìm đơn hàng theo order_id
-        order = env["sale.order"].sudo().browse(int(order_id))
-
+        order = env["sale.order"].sudo().search([("id", "=", order_id)], limit=1)
         if not order:
             return APIResponse(success=False, message="Order not found")
         if data.status not in ALLOWED_STATUS_TRANSITIONS.get(order.state, []):
@@ -603,21 +599,15 @@ def update_order_status(
                 detail=APIResponse(success=False,
                                    message=f"Không thể chuyển trạng thái từ '{order.state}' sang '{data.status}'").model_dump()
             )
-        # 🔹 Cập nhật trạng thái đơn hàng
         order.sudo().write({"state": data.status})
-        if order.state == "sale" and data.status == "sale":
-            background_tasks.add_task(sync_order_data, order)
         order_status_data = OrderStatusData(
             order_id=order.id,
             status=order.state
         )
-
-        return APIResponse(
-            success=True,
-            message="Cập nhật trạng thái đơn hàng thành công",
-            data=order_status_data
-        )
-
+        if order.state == "sale" and data.status == "sale":
+            background_tasks.add_task(sync_order_data, order)
+        return APIResponse(success=True, message="Cập nhật trạng thái đơn hàng thành công",
+                           data=order_status_data)
     except Exception as e:
         return APIResponse(success=False, message=f"Lỗi hệ thống: {str(e)}")
 

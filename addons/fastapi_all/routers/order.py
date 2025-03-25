@@ -547,7 +547,6 @@ def sync_order_data(order):
         "partner_info": {
             "name": order.partner_id.name if order.partner_id else "",
             "phone": order.partner_id.phone if order.partner_id else "",
-            "email": order.partner_id.email if order.partner_id else "",
         },
         "th_order_ecm_id": order.id,
         "th_utm_source": "ome",

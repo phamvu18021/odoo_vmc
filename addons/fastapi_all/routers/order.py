@@ -534,8 +534,8 @@ def confirm_payment(
 
 
 def sync_order_data(order):
-    # sync_url = "https://webhook.site/5d04b972-d6ae-4a53-a4e6-78866b5a532a"
-    sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
+    sync_url = "https://webhook.site/e0e2e348-db91-481e-9ed9-281e2938cc46"
+    # sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
     headers = {"Content-Type": "application/json",
                "api-key": "1"
                }

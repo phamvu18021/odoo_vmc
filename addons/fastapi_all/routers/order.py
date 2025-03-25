@@ -264,6 +264,7 @@ def apply_promotion(
         order_data = OrderData(
             order_id=order.id,
             partner_name=order.partner_id.name,
+            partner_email = order.partner_id.email,
             partner_phone=order.partner_id.phone or order.partner_id.mobile,
             items=[
                 OrderItem(
@@ -466,6 +467,7 @@ def update_order(
             order_id=order.id,
             partner_name=order.partner_id.name,
             partner_phone=order.partner_id.phone or order.partner_id.mobile,
+            partner_email=order.partner_id.email,
             items=[
                 OrderItem(
                     product_id=line.product_id.id,

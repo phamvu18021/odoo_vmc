@@ -7,6 +7,8 @@
               action="action_image_shortcourse" sequence="120"/>
     <menuitem id="user_access_model_menu_action" name="Lưu lượng truy cập" parent="sale.menu_sale_config"
               action="action_user_access" sequence="130"/>
+    <menuitem id="th_menu_product_tags" name="Tags" parent="sale.product_menu_catalog"
+              action="th_product_tag_action" sequence="130"/>
 </odoo>
 
 

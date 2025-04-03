@@ -16,6 +16,7 @@
         'views/th_short_course_view.xml',
         'views/image_shortcourse_views.xml',
         'views/user_access_view.xml',
+        'views/th_product_tags.xml',
         'views/th_teacher_view.xml',
         'views/product_category_views.xml',
         'views/loyalty_reward_views.xml',

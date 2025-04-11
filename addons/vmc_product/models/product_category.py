@@ -1,5 +1,4 @@
-
-from odoo import fields, models, api, Command
+from odoo import models, fields, api
 import re
 import unicodedata
 
@@ -8,6 +7,11 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     slug = fields.Char(string="Slug", default="slug")
+    sequence = fields.Integer(
+        string="Thứ tự hiển thị",
+        default=10,
+        help="Dùng để sắp xếp danh mục trên frontend"
+    )
 
     def _generate_slug(self, name):
         name = name.replace("đ", "d").replace("Đ", "d")

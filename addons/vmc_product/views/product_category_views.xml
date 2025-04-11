@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+
+        <!-- Kế thừa form view -->
         <record id="product_category_form_view_inherit" model="ir.ui.view">
-            <field name="name">product.category.form</field>
+            <field name="name">product.category.form.inherit.slug.sequence</field>
             <field name="model">product.category</field>
             <field name="inherit_id" ref="product.product_category_form_view"/>
             <field name="arch" type="xml">
-                <!-- Thêm trường slug vào nhóm Logistics -->
                 <xpath expr="//group[@name='logistics']" position="inside">
                     <field name="slug" string="Slug" placeholder="Enter a unique slug" required="1"/>
+                    <field name="sequence" string="Thứ tự hiển thị"/>
                 </xpath>
+            </field>
+        </record>
+
+        <!-- Kế thừa tree view -->
+        <record id="product_category_tree_view_inherit" model="ir.ui.view">
+            <field name="name">product.category.tree.inherit.sequence</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_list_view"/>
+            <field name="arch" type="xml">
+                <field name="display_name" position="before">
+                   <field name="sequence" widget="handle"/>
+                </field>
             </field>
         </record>
 

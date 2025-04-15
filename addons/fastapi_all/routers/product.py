@@ -109,7 +109,7 @@ async def get_product_categories(
     try:
         # Chỉ lấy danh mục được tích "Hiển thị trên website"
         categories = env['product.category'].sudo().search_read(
-            [('is_show_on_website', '=', True)],
+            [('is_show_on_website', '!=', True)],
             ['id', 'name', 'slug', 'parent_id', 'sequence'],
             order='sequence ASC'
         )

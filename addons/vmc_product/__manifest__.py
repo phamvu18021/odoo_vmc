@@ -10,7 +10,7 @@
     'website': '',
     'category': 'AUM Business System/ Vmc Product',
     'version': '1.3',
-    'depends': ['base', 'product', 'sale', "stock"],
+    'depends': ['base', 'product', 'sale', 'stock', 'web_editor'],
     'data': [
         'security/ir.model.access.csv',
         'views/th_short_course_view.xml',

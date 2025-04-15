@@ -32,7 +32,7 @@
                             <field name="th_teacher_id"/>
                             <field name="time"/>
                             <field name="duration"/>
-                            <field name="description"/>
+                            <field name="description" widget="html"/>
                             <!--                            <field name="name_to_slug"/>-->
                             <field name="slug_url" attrs="{'invisible':[('idWordPress', '=', '0')]}" readonly="1"/>
                             <field name="idWordPress" attrs="{'invisible':[('idWordPress', '=', '0')]}" readonly="1"/>

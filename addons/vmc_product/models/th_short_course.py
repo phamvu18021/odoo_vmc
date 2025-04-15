@@ -10,7 +10,7 @@ class ShortCourse(models.Model):
     th_teacher_id = fields.Many2one('th.teacher', string="Giáo viên")
     time = fields.Char('Ngày ra mắt')
     duration = fields.Char('Thời lượng')
-    description = fields.Text('Mô tả')
+    description = fields.Html('Mô tả')
     th_img_thumb_url = fields.Char('Image URL', compute="_compute_img_thumb_url")
     image_shortcourse_url = fields.Char('Image ShortCourse URL', compute="_compute_image_shortcourse_url")
     product_id_sam = fields.Integer(string="Product ID SAM")

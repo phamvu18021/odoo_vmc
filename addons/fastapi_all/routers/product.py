@@ -107,10 +107,11 @@ async def get_product_categories(
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        # Lấy tất cả danh mục từ Odoo
+        # Chỉ lấy danh mục được tích "Hiển thị trên website"
         categories = env['product.category'].sudo().search_read(
-            [],  # Không lọc product_count
-            ['id', 'name', 'slug', 'parent_id']
+            [('is_show_on_website', '=', True)],
+            ['id', 'name', 'slug', 'parent_id', 'sequence'],
+            order='sequence ASC'
         )
 
         # Tạo dictionary để tra cứu nhanh
@@ -125,7 +126,7 @@ async def get_product_categories(
                         id=cat['id'],
                         name=cat['name'],
                         slug=cat['slug'],
-                        child_categories=[]  # Không cần hiển thị danh mục con ở đây
+                        child_categories=[]
                     ) for cat in categories
                 ]
             )
@@ -134,14 +135,13 @@ async def get_product_categories(
         def build_category_tree(category_id):
             category = category_map.get(category_id)
             if not category:
-                return None  # Tránh lỗi nếu danh mục không tồn tại
+                return None
 
             child_categories = [
                 build_category_tree(child_id)
                 for child_id in category_map
                 if category_map[child_id].get('parent_id') and category_map[child_id]['parent_id'][0] == category_id
             ]
-
             child_categories = [c for c in child_categories if c]
 
             return CategoryData(
@@ -151,7 +151,7 @@ async def get_product_categories(
                 child_categories=child_categories
             )
 
-        # Lọc ra danh mục gốc (không có parent_id)
+        # Chỉ lấy danh mục gốc (không có parent_id)
         root_categories = [
             build_category_tree(cat['id'])
             for cat in categories if not cat.get('parent_id')

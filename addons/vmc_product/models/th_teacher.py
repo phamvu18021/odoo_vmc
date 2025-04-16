@@ -17,7 +17,7 @@ class ThTeacher(models.Model):
     name = fields.Char(string="Tên giáo viên ", required=True)
     th_img_thumb = fields.Binary(string="Ảnh đại diện")
     th_img_banner_url = fields.Char("URL Ảnh đại diện", compute="_compute_img_banner_url", store=True)
-    description = fields.Text(string="Mô tả")
+    description = fields.Html('Mô tả')
     name_to_slug = fields.Char(string="Slug từ tên")
 
     @api.model

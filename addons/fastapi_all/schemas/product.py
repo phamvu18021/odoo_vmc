@@ -50,8 +50,11 @@ class GetCourseBySlugData(BaseModel):
     name: str
     image: Optional[str] = None
     price: float
+    price_promo: Optional[float] = None
     teacher: Optional[CourseTeacher] = None
     time: Optional[str] = None
+    number_of_lessons: float
+    number_of_student: float
     duration: Optional[str] = None
     description: Optional[str] = None
     slug_url: Optional[str] = None

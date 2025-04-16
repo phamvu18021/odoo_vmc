@@ -337,7 +337,7 @@ async def get_course_by_slug(
             data=GetCourseBySlugData(
                 id=course.id,
                 name=course.with_context({'lang': 'vi_VN'}).name,
-                price_promo=record.price_promo if record.price_promo else None,
+                price_promo=course.price_promo if course.price_promo else None,
                 image=course.image_shortcourse_url,
                 category=str(course.categ_id.name) if course.categ_id else None,
                 price=course.list_price,
@@ -349,8 +349,8 @@ async def get_course_by_slug(
                     description=course.th_teacher_id.description
                 ),
                 time=course.time,
-                number_of_lessons=record.number_of_lessons,
-                number_of_student=record.number_of_student,
+                number_of_lessons=course.number_of_lessons,
+                number_of_student=course.number_of_student,
                 category_slug=course.categ_id.slug,
                 duration=course.duration,
                 description=course.description,

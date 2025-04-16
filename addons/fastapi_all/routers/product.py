@@ -288,6 +288,7 @@ async def list_short_course(
             data.append(GetCourseBySlugData(
                 id=record.id,
                 name=record.with_context({'lang': 'vi_VN'}).name,
+                price_promo=record.price_promo if record.price_promo else None,
                 image=record.image_shortcourse_url or "",
                 category=record.categ_id.name if record.categ_id else None,
                 category_slug=record.categ_id.slug if record.categ_id else None,
@@ -295,6 +296,8 @@ async def list_short_course(
                 price=record.list_price,
                 duration=record.duration,
                 time=record.time,
+                number_of_lessons=record.number_of_lessons,
+                number_of_student=record.number_of_student,
                 desc=record.description,
                 slug_url=record.slug_url
             ))

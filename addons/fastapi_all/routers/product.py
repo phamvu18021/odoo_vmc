@@ -373,20 +373,26 @@ async def list_teachers(
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        # Lấy danh sách giáo viên từ Odoo
         teachers = env['th.teacher'].sudo().search([])
 
-        # Xử lý dữ liệu trả về
-        teacher_data = [
-            CourseTeacher(
+        teacher_data = []
+        for teacher in teachers:
+            # Đếm số khóa học gán với giáo viên này
+            domain = [
+                ('purchase_ok', '=', True),
+                ('th_teacher_id', '=', teacher.id)
+            ]
+            total_courses = env['product.template'].sudo().search_count(domain)
+
+            teacher_data.append(CourseTeacher(
                 id=teacher.id,
                 name=teacher.name,
                 image=teacher.th_img_banner_url,
                 name_to_slug=teacher.name_to_slug,
-                description=teacher.description
-            )
-            for teacher in teachers
-        ]
+                description=teacher.description,
+                total_documents=total_courses
+            ))
+
         return ListTeachersResponse(
             data=teacher_data,
             message="success",

@@ -32,7 +32,7 @@ class CourseTeacher(BaseModel):
     image: Optional[str] = None
     name_to_slug: Optional[str] = None
     description: Optional[str] = None
-
+    total_documents: Optional[int] = None
     @field_validator("image", "description", "name_to_slug",
                      mode="before")
     def convert_false_to_none(cls, value):

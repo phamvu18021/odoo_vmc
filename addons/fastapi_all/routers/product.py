@@ -10,7 +10,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from typing import Optional
 
 from ..schemas.product import ShortCourseWordPressRequest, ListShortCourseResponse, ListShortCourseData, \
-    OrderLine, CreateSaleOrderResponse, UserCreate, GetCourseBySlugResponse, \
+    TeacherGroup, CreateSaleOrderResponse, ListTeachersGroupedResponse, GetCourseBySlugResponse, \
     CourseTeacher, CheckDiscountResponse, DiscountDetail, OrderData, PartnerOrdersResponse, UserAccessResponse, \
     StatsResponse, OrderLineGet, StatsData, CheckDiscountRequest, \
     PartnerOrdersRequest, UserAccessRequest, GetCourseBySlugData, CreateSaleOrderRequest, ProductCategoriesResponse, \
@@ -363,43 +363,50 @@ async def get_course_by_slug(
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@router.post("/list-teachers", response_model=ListTeachersResponse)
+@router.post("/list-teachers", response_model=ListTeachersGroupedResponse)
 async def list_teachers(
-        env: Annotated[Environment, Depends(odoo_env)],
-        credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
+    env: Annotated[Environment, Depends(odoo_env)],
+    credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
     token = credentials.credentials
     if token != ODOO_SECRET:
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        teachers = env['th.teacher'].sudo().search([])
+        groups_data = []
 
-        teacher_data = []
-        for teacher in teachers:
-            # Đếm số khóa học gán với giáo viên này
-            domain = [
-                ('purchase_ok', '=', True),
-                ('th_teacher_id', '=', teacher.id)
-            ]
-            total_courses = env['product.template'].sudo().search_count(domain)
+        groups = env['th.teacher.group'].sudo().search([])
+        for group in groups:
+            teacher_items = []
+            for teacher in group.teacher_ids:
+                total_courses = env['product.template'].sudo().search_count([
+                    ('purchase_ok', '=', True),
+                    ('th_teacher_id', '=', teacher.id)
+                ])
+                teacher_items.append(CourseTeacher(
+                    id=teacher.id,
+                    name=teacher.name,
+                    image=teacher.th_img_banner_url or "",
+                    name_to_slug=teacher.name_to_slug or "",
+                    description=teacher.description or "",
+                    total_documents=total_courses
+                ))
 
-            teacher_data.append(CourseTeacher(
-                id=teacher.id,
-                name=teacher.name,
-                image=teacher.th_img_banner_url,
-                name_to_slug=teacher.name_to_slug,
-                description=teacher.description,
-                total_documents=total_courses
+            groups_data.append(TeacherGroup(
+                group_name=group.name,
+                teachers=teacher_items
             ))
 
-        return ListTeachersResponse(
-            data=teacher_data,
+        return ListTeachersGroupedResponse(
+            data=groups_data,
             message="success",
             status="200"
         )
+
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Lỗi khi nhóm giáo viên: {str(e)}")
+
+
 
 
 @router.post("/create_sale_order", response_model=CreateSaleOrderResponse)

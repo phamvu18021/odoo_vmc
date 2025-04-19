@@ -2,6 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_user_access,access.user.access,model_user_access,,1,1,1,1
 access_image_shortcourse,access_image_shortcourse,model_image_shortcourse,,1,1,1,1
 access_th_teacher,access_th_teacher,model_th_teacher,,1,1,1,1
+access_th_teacher_gr,access_th_teacher_gr,model_th_teacher_group,,1,1,1,1
 access_product_template,access.product.template,model_product_template,,1,1,1,1
 access_sale_order,sale.order,sale.model_sale_order,,1,1,1,1
 access_ir_sequence,ir.sequence,base.model_ir_sequence,,1,1,1,1

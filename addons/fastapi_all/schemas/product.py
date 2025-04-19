@@ -221,3 +221,12 @@ class StatsResponse(BaseModel):
     data: Optional[StatsData] = None
     message: Optional[str] = None
     error: Optional[str] = None
+
+class TeacherGroup(BaseModel):
+    group_name: str
+    teachers: List[CourseTeacher]
+
+class ListTeachersGroupedResponse(BaseModel):
+    data: List[TeacherGroup]
+    message: str
+    status: str

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="th_teacher_model_menu_action" name="Giáo viên" parent="sale.menu_sale_config"
-              action="th_teacher_model_action" sequence="105"/>
+              action="action_th_teacher_group" sequence="105"/>
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="th_image_shortcourse_model_menu_action" name="Image Shortcourse" parent="sale.menu_sale_config"
               action="action_image_shortcourse" sequence="120"/>

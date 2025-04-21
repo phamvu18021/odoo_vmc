@@ -11,7 +11,6 @@
                 <xpath expr="//group[@name='logistics']" position="inside">
                     <field name="slug" string="Slug" placeholder="Enter a unique slug" required="1"/>
                     <field name="sequence" string="Thứ tự hiển thị"/>
-                    <field name="is_show_on_website" string="Hiển thị trên website"/>
                 </xpath>
             </field>
         </record>
@@ -24,9 +23,6 @@
             <field name="arch" type="xml">
                 <field name="display_name" position="before">
                     <field name="sequence" widget="handle"/>
-                </field>
-                <field name="display_name" position="after">
-                    <field name="is_show_on_website" string="Hiển thị trên website"/>
                 </field>
             </field>
         </record>

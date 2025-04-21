@@ -6,3 +6,4 @@ access_th_teacher_gr,access_th_teacher_gr,model_th_teacher_group,,1,1,1,1
 access_product_template,access.product.template,model_product_template,,1,1,1,1
 access_sale_order,sale.order,sale.model_sale_order,,1,1,1,1
 access_ir_sequence,ir.sequence,base.model_ir_sequence,,1,1,1,1
+access_product_category_group,access.product.category.group,model_product_category_group,,1,1,1,1

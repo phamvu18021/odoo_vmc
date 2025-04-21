@@ -12,7 +12,7 @@ from typing import Optional
 from ..schemas.product import ShortCourseWordPressRequest, ListShortCourseResponse, ListShortCourseData, \
     TeacherGroup, CreateSaleOrderResponse, ListTeachersGroupedResponse, GetCourseBySlugResponse, \
     CourseTeacher, CheckDiscountResponse, DiscountDetail, OrderData, PartnerOrdersResponse, UserAccessResponse, \
-    StatsResponse, OrderLineGet, StatsData, CheckDiscountRequest, \
+    GroupedCategoryResponse, OrderLineGet, ListGroupedCategoriesResponse, CheckDiscountRequest, \
     PartnerOrdersRequest, UserAccessRequest, GetCourseBySlugData, CreateSaleOrderRequest, ProductCategoriesResponse, \
     SubCategory, CategoryData, ListTeachersResponse, ProductCategoryRequest
 from ...fastapi.dependencies import odoo_env
@@ -96,72 +96,140 @@ async def admission_wordpress(
 #     except Exception as e:
 #         return ProductCategoriesResponse(success=False, error=str(e))
 
-@router.post("/product-categories", response_model=ProductCategoriesResponse)
-async def get_product_categories(
-        request: ProductCategoryRequest,
-        env: Environment = Depends(odoo_env),
-        credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
+# @router.post("/product-categories", response_model=GroupedCategoryResponse)
+# async def get_product_categories(
+#     request: ProductCategoryRequest,
+#     env: Environment = Depends(odoo_env),
+#     credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
+# ):
+#     token = credentials.credentials
+#     if token != ODOO_SECRET:
+#         raise HTTPException(status_code=403, detail="Invalid secret code")
+#
+#     try:
+#         if not request.group_name:
+#             raise HTTPException(status_code=400, detail="group_name is required")
+#
+#         # Tìm nhóm danh mục theo tên
+#         group = env['product.category.group'].sudo().search([('name', '=', request.group_name)], limit=1)
+#         if not group:
+#             raise HTTPException(status_code=404, detail="Group not found")
+#
+#         # Lấy danh mục có hiển thị
+#         raw_categories = [
+#             cat for cat in group.category_ids
+#             if cat.is_show_on_website
+#         ]
+#
+#         categories = [
+#             {
+#                 'id': cat.id,
+#                 'name': cat.name,
+#                 'slug': cat.slug,
+#                 'parent_id': cat.parent_id.id if cat.parent_id else None
+#             }
+#             for cat in raw_categories
+#         ]
+#         category_map = {cat['id']: cat for cat in categories}
+#
+#         def build_category_tree(category_id):
+#             category = category_map.get(category_id)
+#             if not category:
+#                 return None
+#
+#             children = [
+#                 build_category_tree(child_id)
+#                 for child_id in category_map
+#                 if category_map[child_id]['parent_id'] == category_id
+#             ]
+#             children = [c for c in children if c]
+#
+#             return CategoryData(
+#                 id=category['id'],
+#                 name=category['name'],
+#                 slug=category['slug'],
+#                 child_categories=children
+#             )
+#
+#         root_categories = [
+#             build_category_tree(cat['id'])
+#             for cat in categories if cat['parent_id'] is None
+#         ]
+#         root_categories = [c for c in root_categories if c]
+#
+#         return GroupedCategoryResponse(
+#             group_id=group.id,
+#             group_name=group.name,
+#             data=root_categories
+#         )
+#
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
+
+
+@router.post("/product-categories", response_model=ListGroupedCategoriesResponse)
+async def list_category_groups(
+    env: Annotated[Environment, Depends(odoo_env)],
+    credentials: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
     token = credentials.credentials
     if token != ODOO_SECRET:
         raise HTTPException(status_code=403, detail="Invalid secret code")
 
     try:
-        # Chỉ lấy danh mục được tích "Hiển thị trên website"
-        categories = env['product.category'].sudo().search_read(
-            [('is_show_on_website', '!=', True)],
-            ['id', 'name', 'slug', 'parent_id', 'sequence'],
-            order='sequence ASC'
+        result = []
+
+        groups = env['product.category.group'].sudo().search([])
+        for group in groups:
+            raw_categories = group.category_ids
+            categories = [
+                {
+                    'id': cat.id,
+                    'name': cat.name,
+                    'slug': cat.slug,
+                    'parent_id': cat.parent_id.id if cat.parent_id else None
+                }
+                for cat in raw_categories
+            ]
+            category_map = {c['id']: c for c in categories}
+
+            def build_tree(cat_id):
+                cat = category_map.get(cat_id)
+                if not cat:
+                    return None
+
+                children = [
+                    build_tree(child_id)
+                    for child_id in category_map
+                    if category_map[child_id]['parent_id'] == cat_id
+                ]
+                children = [c for c in children if c]
+
+                return CategoryData(
+                    id=cat['id'],
+                    name=cat['name'],
+                    slug=cat['slug'],
+                    child_categories=children
+                )
+
+            root_nodes = [
+                build_tree(cat['id']) for cat in categories if cat['parent_id'] is None
+            ]
+            root_nodes = [c for c in root_nodes if c]
+
+            result.append(GroupedCategoryResponse(
+                group_name=group.name,
+                data=root_nodes
+            ))
+
+        return ListGroupedCategoriesResponse(
+            data=result,
+            message="success",
+            status="200"
         )
 
-        # Tạo dictionary để tra cứu nhanh
-        category_map = {cat['id']: cat for cat in categories}
-
-        # Nếu type = "all", trả về danh sách phẳng
-        if request.type == "all":
-            return ProductCategoriesResponse(
-                success=True,
-                data=[
-                    CategoryData(
-                        id=cat['id'],
-                        name=cat['name'],
-                        slug=cat['slug'],
-                        child_categories=[]
-                    ) for cat in categories
-                ]
-            )
-
-        # Nếu type = "consensus", xây dựng cây danh mục
-        def build_category_tree(category_id):
-            category = category_map.get(category_id)
-            if not category:
-                return None
-
-            child_categories = [
-                build_category_tree(child_id)
-                for child_id in category_map
-                if category_map[child_id].get('parent_id') and category_map[child_id]['parent_id'][0] == category_id
-            ]
-            child_categories = [c for c in child_categories if c]
-
-            return CategoryData(
-                id=category['id'],
-                name=category['name'],
-                slug=category['slug'],
-                child_categories=child_categories
-            )
-
-        # Chỉ lấy danh mục gốc (không có parent_id)
-        root_categories = [
-            build_category_tree(cat['id'])
-            for cat in categories if not cat.get('parent_id')
-        ]
-
-        return ProductCategoriesResponse(success=True, data=root_categories)
-
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
+        raise HTTPException(status_code=500, detail=f"Lỗi khi load nhóm danh mục: {str(e)}")
 
 # @router.post("/list-shortcourse", response_model=ListShortCourseResponse)
 # async def list_short_course(

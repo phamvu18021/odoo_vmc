@@ -12,7 +12,6 @@ class ProductCategory(models.Model):
         default=10,
         help="Dùng để sắp xếp danh mục trên frontend"
     )
-    is_show_on_website = fields.Boolean(string="Hiển thị trên website", default=False)
     def _generate_slug(self, name):
         name = name.replace("đ", "d").replace("Đ", "d")
         slug = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')

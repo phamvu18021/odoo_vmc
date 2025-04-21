@@ -230,3 +230,18 @@ class ListTeachersGroupedResponse(BaseModel):
     data: List[TeacherGroup]
     message: str
     status: str
+
+class GroupedCategoryResponse(BaseModel):
+    group_id: int
+    group_name: str
+    data: List[CategoryData]
+
+class GroupedCategoryResponse(BaseModel):
+    group_name: str
+    data: List[CategoryData]
+
+class ListGroupedCategoriesResponse(BaseModel):
+    data: List[GroupedCategoryResponse]
+    message: str
+    status: str
+

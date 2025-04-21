@@ -6,3 +6,4 @@ from . import product_category
 from . import th_loyalty_reward
 from . import th_sale_order
 from . import product_tags
+from . import product_category_group

@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <record id="action_product_category_group" model="ir.actions.act_window">
+            <field name="name">Nhóm danh mục</field>
+            <field name="res_model">product.category.group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu root (nếu không chắc parent) -->
+        <menuitem id="menu_product_category_group_root"
+                  name="Nhóm danh mục"
+                  sequence="100"/>
+
+        <!-- Menu con -->
+        <menuitem id="menu_product_category_group"
+                  name="Quản lý nhóm"
+                  parent="menu_product_category_group_root"
+                  action="action_product_category_group"
+                  sequence="10"/>
+
+    </data>
+</odoo>

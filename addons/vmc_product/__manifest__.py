@@ -18,6 +18,7 @@
         'views/user_access_view.xml',
         'views/th_product_tags.xml',
         'views/th_teacher_view.xml',
+        'views/th_teacher_views.xml',
         'views/product_category_views.xml',
         'views/product_category_group_menu.xml',
         'views/product_category_group_views.xml',

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_th_teacher_tree" model="ir.ui.view">
+        <field name="name">th.teacher.tree</field>
+        <field name="model">th.teacher</field>
+        <field name="arch" type="xml">
+            <tree string="Views">
+                <field name="th_img_thumb" widget="image" options="{'size': (100, 100)}"/>
+                <field name="name_to_slug" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+    <record id="view_th_teacher_news_form" model="ir.ui.view">
+        <field name="name">th.teacher.form</field>
+        <field name="model">th.teacher</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Tên giáo viên"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="th_img_thumb" widget="image" options="{'size': (100, 100)}"/>
+                        <group>
+                            <field name="description" widget="html"/>
+                            <field name="name_to_slug" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="th_teacher_model_action" model="ir.actions.act_window">
+        <field name="name">Giáo viên</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">th.teacher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

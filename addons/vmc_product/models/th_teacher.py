@@ -15,8 +15,8 @@ class ThTeacher(models.Model):
     _description = 'Giáo viên'
 
     name = fields.Char(string="Tên giáo viên", required=True)
-    th_img_thumb = fields.Binary(string="Ảnh đại diện")
-    th_img_banner_url = fields.Char("URL ảnh", compute="_compute_img_banner_url", store=True)
+    th_img_thumb = fields.Binary(string="Ảnh đại diện")
+    th_img_banner_url = fields.Char("URL Ảnh đại diện", compute="_compute_img_banner_url", store=True)
     description = fields.Html('Mô tả')
     name_to_slug = fields.Char(string="Slug từ tên")
     group_ids = fields.Many2many('th.teacher.group', 'th_group_teacher_rel', 'teacher_id', 'group_id', string="Nhóm")

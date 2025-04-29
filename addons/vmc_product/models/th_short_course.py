@@ -16,6 +16,7 @@ class ShortCourse(models.Model):
     th_img_thumb_url = fields.Char('Image URL', compute="_compute_img_thumb_url")
     image_shortcourse_url = fields.Char('Image ShortCourse URL', compute="_compute_image_shortcourse_url")
     product_id_sam = fields.Integer(string="Product ID SAM")
+    product_id_ee = fields.Integer(string="Product ID EE")
     name_to_slug = fields.Char(string="Slug từ tên")
     price_promo = fields.Float(string="Giá hiển thị")
 

@@ -24,6 +24,7 @@
         'views/product_category_group_views.xml',
         'views/loyalty_reward_views.xml',
         'views/th_sale_order_view.xml',
+        'views/loyalty_program_views.xml',
         'views/menus.xml',
 
     ],

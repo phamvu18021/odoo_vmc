@@ -5,6 +5,7 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     customer_payment_confirmed = fields.Boolean(string="Khách hàng đã xác nhận thanh toán")
+    order_id_ee = fields.Integer(string="ID ORDER EE")
 
     def _remove_promotion_lines(self):
         """Xóa tất cả dòng sản phẩm được thêm vào từ chương trình khuyến mãi"""

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu Item -->
+    <record id="menu_sync_config_root" model="ir.ui.menu">
+        <field name="name">Sync Configurations</field>
+        <field name="sequence" eval="10"/>
+        <field name="parent_id" ref="base.menu_administration"/>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_sync_config_tree" model="ir.ui.view">
+        <field name="name">sync.config.tree</field>
+        <field name="model">sync.config</field>
+        <field name="arch" type="xml">
+            <tree string="Sync Configurations">
+                <field name="name"/>
+                <field name="model_name"/>
+                <field name="sync_url"/>
+                <field name="time_range_value"/>
+                <field name="time_range_unit"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_sync_config_form" model="ir.ui.view">
+        <field name="name">sync.config.form</field>
+        <field name="model">sync.config</field>
+        <field name="arch" type="xml">
+            <form string="Sync Configuration">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="model_name"/>
+                        <field name="sync_url"/>
+                        <field name="auth_token"/>
+                        <field name="time_range_value"/>
+                        <field name="time_range_unit"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_sync_config" model="ir.actions.act_window">
+        <field name="name">Sync Configurations</field>
+        <field name="res_model">sync.config</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_sync_config_root" name="Syn Config" web_icon="th_eteaching,static/description/icon.png">
+        <menuitem id="second_level" name="Cấu hình đồng bộ" action="action_sync_config" sequence="99"/>
+    </menuitem>
+</odoo>

@@ -7,6 +7,8 @@ class ProductCategory(models.Model):
     _inherit = "product.category"
 
     slug = fields.Char(string="Slug", default="slug")
+    categ_id_ee = fields.Integer(string="ID Danh mục EE")
+
     sequence = fields.Integer(
         string="Thứ tự hiển thị",
         default=10,

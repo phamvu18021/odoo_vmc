@@ -6,7 +6,7 @@ COPY ./addons /mnt/extra-addons
 COPY ./entrypoint.sh /entrypoint.sh
 
 ENV HOST odoo-db
-ENV TOKEN 610f25e22dbccb07171886c016103a86
+ENV TOKEN 610f25e22dbccb07171
 ENV PASSWORD odoo16@2022
 
 

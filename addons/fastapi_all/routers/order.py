@@ -534,11 +534,11 @@ def confirm_payment(
 # sync_url = "https://api.sambala.net/api/saleorders"
 #"api-key": "sambala@2024"
 def sync_order_data(order):
-    # sync_url = "https://usam.aumpilot.com/c1/api/saleorders"
+    sync_url = "https://usam.aumpilot.com/c1/api/saleorders"
     # sync_url = "http://10.10.51.17:8016/api/saleorders
     # sync_url = "http://10.10.51.17:8016/c1/api/saleorders"
     # sync_url = "https://sam.aumpilot.com/vi/c1/api/saleorders"
-    sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
+    # sync_url = "https://sam.aumpilot.com/c1/api/saleorders"
     headers = {"Content-Type": "application/json",
                "api-key": "1"
                }

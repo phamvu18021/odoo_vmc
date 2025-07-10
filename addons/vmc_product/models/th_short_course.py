@@ -71,7 +71,7 @@ class ShortCourse(models.Model):
                 shortcourse.th_img_thumb_url = "false"
 
     def open_create_wordpress_link(self, *args, **kwargs):
-        base_url = 'http://10.10.51.16:8686/wp-admin/post-new.php?cat=7&idOdoo='
+        base_url = 'https://admindsome.devlab.info.vn/wp-admin/post-new.php?cat=7&idOdoo='
         random_part = self.id or ''
         full_url = f'{base_url}{random_part}'
         return {
@@ -81,7 +81,7 @@ class ShortCourse(models.Model):
         }
 
     def open_edit_wordpress_link(self, *args, **kwargs):
-        base_url = 'http://10.10.51.16:8686/wp-admin/post.php?post='
+        base_url = 'https://admindsome.devlab.info.vn/wp-admin/post.php?post='
         random_part = self.idWordPress or ''
         idOdoo = self.id or ''
         full_url = f'{base_url}{random_part}&action=edit&idOdoo={idOdoo}'
